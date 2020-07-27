@@ -4,6 +4,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "newLine": "LF",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
@@ -11,6 +12,7 @@
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
+    "noUnusedLocals": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
