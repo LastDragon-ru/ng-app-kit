@@ -9,7 +9,7 @@ import {HttpErrorFormatter}      from 'projects/core/src/lib/Services/ErrorForma
     declarations: [],
     exports:      [],
     providers:    [
-        TranslocoScopeProvider.getScope(CoreTranslation, 'kitCore', (locale) => {
+        TranslocoScopeProvider.provide(CoreTranslation, 'kitCore', (locale) => {
             return import(`../i18n/${locale}.json`);
         }),
         ErrorFormattersProvider.provide(),

@@ -6,7 +6,7 @@ import {TranslationImporter} from 'projects/core/src/lib/I18n/TranslationImporte
 import {TranslationProvider} from 'projects/core/src/lib/I18n/TranslationProvider';
 
 export class TranslocoScopeProvider {
-    public static getScope(token: InjectionToken<TranslationProvider>, scope: string, importer: TranslationImporter): Provider {
+    public static provide(token: InjectionToken<TranslationProvider>, scope: string, importer: TranslationImporter): Provider {
         return {
             provide:    TRANSLOCO_SCOPE,
             deps:       [[new Optional(), token]],
