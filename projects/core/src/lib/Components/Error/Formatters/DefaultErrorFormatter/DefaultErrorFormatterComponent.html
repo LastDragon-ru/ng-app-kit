@@ -1,0 +1,6 @@
+<ng-container *ngIf="message; else unknown">
+    {{message}}
+</ng-container>
+<ng-template #unknown>
+    <ng-container i18n="@kitCore:kit-error.unknown">Unknown error.</ng-container>
+</ng-template>

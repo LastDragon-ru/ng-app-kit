@@ -1,0 +1,42 @@
+import {HttpErrorResponse}                from '@angular/common/http';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {isEmpty}                          from 'projects/core/src/lib/Utils/isEmpty';
+import {HttpErrorFormatterComponent}      from './HttpErrorFormatterComponent';
+
+describe('HttpErrorFormatterComponent', () => {
+    let component: HttpErrorFormatterComponent;
+    let fixture: ComponentFixture<HttpErrorFormatterComponent>;
+    let element: HTMLElement;
+
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [HttpErrorFormatterComponent],
+        })
+            .compileComponents();
+    }));
+
+    beforeEach(() => {
+        fixture   = TestBed.createComponent(HttpErrorFormatterComponent);
+        element   = fixture.nativeElement;
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
+
+    it('error is HttpErrorResponse', () => {
+        component.error = new HttpErrorResponse({status: 404});
+        fixture.detectChanges();
+
+        expect(isEmpty(element.textContent)).toBeFalse();
+    });
+
+    it('error is not HttpErrorResponse', () => {
+        component.error = true;
+        fixture.detectChanges();
+
+        expect(isEmpty(element.textContent)).toBeTrue();
+    });
+});
