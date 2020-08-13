@@ -1,7 +1,7 @@
-import {isArray} from 'projects/core/src/lib/Utils/isArray';
-import {isObject} from 'projects/core/src/lib/Utils/isObject';
+import {isArray}   from 'projects/core/src/lib/Utils/isArray';
+import {isHashMap} from 'projects/core/src/lib/Utils/isHashMap';
 
-export function isEqual(a: any, b: any): boolean {
+export function isEqual<A, B>(a: A | B, b: B | A): boolean {
     // Same?
     if (a === b) {
         return true;
@@ -13,14 +13,14 @@ export function isEqual(a: any, b: any): boolean {
         return a.every((value, index) => value === b[index]);
     }
 
-    // Objects? (only {})
+    // HashMap? (only {})
     // https://stackoverflow.com/a/52323412
-    if (isObject(a, Object) && isObject(b, Object)) {
+    if (isHashMap(a) && isHashMap(b)) {
         const aKeys = Object.keys(a);
         const bKeys = Object.keys(b);
 
         return aKeys.length === bKeys.length
-            && aKeys.every(key => b.hasOwnProperty(key) && a[key] === b[key]);
+            && aKeys.every(key => Object.prototype.hasOwnProperty.call(b, key) && a[key] === b[key]);
     }
 
     // end
