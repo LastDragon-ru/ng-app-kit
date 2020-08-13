@@ -11,7 +11,8 @@ export class ErrorFormattersProvider {
                 [new Self(), ErrorFormatter],
                 [new Optional(), new SkipSelf(), ErrorFormatter],
             ],
-            useFactory: (own: Type<ErrorFormatterComponent>[], formatters?: Type<ErrorFormatterComponent>[]): Type<ErrorFormatterComponent>[] => {
+            useFactory: (own: Type<ErrorFormatterComponent>[],
+                         formatters?: Type<ErrorFormatterComponent>[]): Type<ErrorFormatterComponent>[] => {
                 return [...own, ...(formatters || [])];
             },
         };

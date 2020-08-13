@@ -1,1 +1,1 @@
-export type Error = any;
+export type Error = any; // tslint:disable-line:no-any

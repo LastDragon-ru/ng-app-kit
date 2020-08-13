@@ -1,71 +1,71 @@
 import {ElementRef} from '@angular/core';
-import {Properties} from 'projects/core/src/lib/classes/Properties';
+import {HashMap}    from 'projects/core/src/lib/Classes/HashMap';
 import {isEmpty}    from 'projects/core/src/lib/Utils/isEmpty';
 import {using}      from 'projects/core/src/lib/Utils/Tests/using';
 
 describe('isEmpty', () => {
-    const dataProvider: Properties<{ value: any; empty: boolean; error?: true }> = {
-        'null':                    {
+    const dataProvider: HashMap<{ value: any; empty: boolean; error?: true }> = { // tslint:disable-line:no-any
+        null:                            {
             value: null,
             empty: true,
         },
-        'true':                   {
+        true:                            {
             value: true,
             empty: false,
         },
-        'false':                   {
+        false:                           {
             value: false,
             empty: false,
         },
-        'undefined':               {
+        undefined:                       {
             value: undefined,
             empty: true,
         },
-        '0':                       {
+        0:                               {
             value: 0,
             empty: false,
         },
-        'empty string':            {
+        'empty string':                  {
             value: '',
             empty: true,
         },
-        'spaces':                  {
+        spaces:                          {
             value: '  ',
             empty: true,
         },
-        'string':                  {
+        string:                          {
             value: '123',
             empty: false,
         },
-        'empty array':             {
+        'empty array':                   {
             value: [],
             empty: true,
         },
-        'array':                   {
+        array:                           {
             value: [1],
             empty: false,
         },
-        'empty object':            {
+        'empty object':                  {
             value: {},
             empty: true,
         },
-        'object':                  {
+        object:                          {
             value: {a: 123},
             empty: false,
         },
-        'html with comment':       {
+        'html with comment':             {
             value: (new DOMParser()).parseFromString(' <!-- comment --> ', 'text/html').body,
             empty: true,
         },
-        'html with empty element': {
+        'html with empty element':       {
             value: (new DOMParser()).parseFromString(' <span></span> ', 'text/html').body,
             empty: false,
         },
-        'html with element':       {
+        'html with element':             {
             value: (new DOMParser()).parseFromString(' <span>123</span> ', 'text/html').body,
             empty: false,
         },
-        'html with entity':        {
+        'html with entity':              {
             value: (new DOMParser()).parseFromString('<body> &#x1F981; </body>', 'text/html').body,
             empty: false,
         },
@@ -81,7 +81,7 @@ describe('isEmpty', () => {
             value: new ElementRef((new DOMParser()).parseFromString(' <span>123</span> ', 'text/html').body),
             empty: false,
         },
-        'unsupported type':        {
+        'unsupported type':              {
             value: new Date(),
             empty: false,
             error: true,

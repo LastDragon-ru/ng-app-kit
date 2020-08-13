@@ -1,4 +1,5 @@
 import {
+    AfterViewInit,
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
@@ -26,9 +27,7 @@ import {isEqual}                        from 'projects/core/src/lib/Utils/isEqua
     styleUrls:       ['./ErrorComponent.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ErrorComponent extends StatefulComponent {
-    private _error: Error | null = null;
-
+export class ErrorComponent extends StatefulComponent implements AfterViewInit {
     private formatters: Type<ErrorFormatterComponent>[];
     private defaultFormatter: Type<ErrorFormatterComponent>;
 
@@ -49,27 +48,29 @@ export class ErrorComponent extends StatefulComponent {
     // =========================================================================
     @Input()
     public get error(): Error | null {
-        return this._error;
+        return this.#error;
     }
 
     public set error(errors: Error | null) {
         if (!isEqual(this.error, errors)) {
-            this._error = errors;
+            this.#error = errors;
             this.update();
             this.stateChanged();
         }
     }
 
-    //</editor-fold>
+    #error: Error | null = null; /* tslint:disable-line:member-access */
+
+    // </editor-fold>
 
     // <editor-fold desc="Angular">
     // =========================================================================
-    public ngAfterViewInit() {
+    public ngAfterViewInit(): void {
         super.ngAfterViewInit();
         this.update();
     }
 
-    //</editor-fold>
+    // </editor-fold>
 
     // <editor-fold desc="Functions">
     // =========================================================================
@@ -83,7 +84,7 @@ export class ErrorComponent extends StatefulComponent {
         this.container.clear();
 
         // No error?
-        if (this.error == false) {
+        if (!this.error) {
             return;
         }
 
@@ -115,5 +116,5 @@ export class ErrorComponent extends StatefulComponent {
         return component;
     }
 
-    //</editor-fold>
+    // </editor-fold>
 }

@@ -1,3 +1,3 @@
-export function isArray(value: any): value is Array<any> {
+export function isArray(value: any): value is any[] { // tslint:disable-line:no-any
     return Array.isArray(value);
 }
