@@ -1,12 +1,12 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {DefaultErrorFormatterComponent}   from 'projects/core/src/lib/Components/Error/Formatters/DefaultErrorFormatter/DefaultErrorFormatterComponent';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {DefaultErrorFormatterComponent}          from 'projects/core/src/lib/Components/Error/Formatters/DefaultErrorFormatter/DefaultErrorFormatterComponent';
 
 describe('DefaultErrorFormatterComponent', () => {
     let component: DefaultErrorFormatterComponent;
     let fixture: ComponentFixture<DefaultErrorFormatterComponent>;
     let element: HTMLElement;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [DefaultErrorFormatterComponent],
         })

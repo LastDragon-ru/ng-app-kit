@@ -1,14 +1,14 @@
-import {HttpErrorResponse}                from '@angular/common/http';
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {isEmpty}                          from 'projects/core/src/lib/Utils/isEmpty';
-import {HttpErrorFormatterComponent}      from './HttpErrorFormatterComponent';
+import {HttpErrorResponse}                       from '@angular/common/http';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {isEmpty}                                 from 'projects/core/src/lib/Utils/isEmpty';
+import {HttpErrorFormatterComponent}             from './HttpErrorFormatterComponent';
 
 describe('HttpErrorFormatterComponent', () => {
     let component: HttpErrorFormatterComponent;
     let fixture: ComponentFixture<HttpErrorFormatterComponent>;
     let element: HTMLElement;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [HttpErrorFormatterComponent],
         })
