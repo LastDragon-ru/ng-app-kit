@@ -1,0 +1,13 @@
+{
+  "name": "@lastdragon-ru/ng-app-kit-forms",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^10.0.5",
+    "@angular/core": "^10.0.5",
+    "@angular/forms": "^10.0.5",
+    "@lastdragon-ru/ng-app-kit-core": "^0.0.1"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}

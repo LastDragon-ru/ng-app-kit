@@ -25,6 +25,10 @@
       "core": [
         "dist/core/core",
         "dist/core"
+      ],
+      "forms": [
+        "dist/forms/forms",
+        "dist/forms"
       ]
     }
   },
