@@ -13,7 +13,7 @@ export class ErrorFormattersProvider {
             ],
             useFactory: (own: Type<ErrorFormatterComponent>[],
                          formatters?: Type<ErrorFormatterComponent>[]): Type<ErrorFormatterComponent>[] => {
-                return [...own, ...(formatters || [])];
+                return [...(formatters || []), ...own];
             },
         };
     }

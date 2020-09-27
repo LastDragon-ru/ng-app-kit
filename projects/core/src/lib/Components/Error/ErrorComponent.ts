@@ -36,8 +36,8 @@ export class ErrorComponent extends StatefulComponent implements AfterViewInit {
 
     public constructor(cdr: ChangeDetectorRef,
                        private resolver: ComponentFactoryResolver,
-                       @Optional() @Inject(ErrorFormatters) formatters: Type<ErrorFormatterComponent>[] | undefined,
-                       @Optional() @Inject(DefaultErrorFormatter) defaultFormatter: Type<ErrorFormatterComponent> | undefined) {
+                       @Inject(ErrorFormatters) @Optional() formatters: Type<ErrorFormatterComponent>[] | null,
+                       @Inject(DefaultErrorFormatter) @Optional() defaultFormatter: Type<ErrorFormatterComponent> | null) {
         super(cdr);
 
         this.formatters       = formatters || [];
