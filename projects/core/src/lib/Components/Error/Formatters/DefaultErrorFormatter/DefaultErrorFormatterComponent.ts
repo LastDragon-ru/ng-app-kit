@@ -1,5 +1,5 @@
 import {Component, Input}        from '@angular/core';
-import {Error}                   from 'projects/core/src/lib/Classes/AppError';
+import {AppError}                from 'projects/core/src/lib/Classes/AppError';
 import {ErrorFormatterComponent} from 'projects/core/src/lib/Components/Error/Formatters/ErrorFormatterComponent';
 import {isString}                from 'projects/core/src/lib/Utils/isString';
 
@@ -9,7 +9,7 @@ import {isString}                from 'projects/core/src/lib/Utils/isString';
 })
 export class DefaultErrorFormatterComponent implements ErrorFormatterComponent {
     @Input()
-    public error!: Error;
+    public error!: AppError;
 
     /**
      * @protected

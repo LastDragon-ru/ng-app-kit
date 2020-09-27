@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Error}      from 'projects/core/src/lib/Classes/AppError';
+import {AppError}   from 'projects/core/src/lib/Classes/AppError';
 
 @Injectable({
     providedIn: 'root',
@@ -15,7 +15,7 @@ export class NotificatorService {
         console.log(message);
     }
 
-    public error(error?: Error | null): void {
+    public error(error?: AppError | null): void {
         if (error === false) {
             return;
         }

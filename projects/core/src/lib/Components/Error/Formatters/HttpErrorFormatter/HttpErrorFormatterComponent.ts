@@ -1,6 +1,6 @@
 import {HttpErrorResponse}       from '@angular/common/http';
 import {Component}               from '@angular/core';
-import {Error}                   from 'projects/core/src/lib/Classes/AppError';
+import {AppError}                from 'projects/core/src/lib/Classes/AppError';
 import {ErrorFormatterComponent} from 'projects/core/src/lib/Components/Error/Formatters/ErrorFormatterComponent';
 
 @Component({
@@ -8,7 +8,7 @@ import {ErrorFormatterComponent} from 'projects/core/src/lib/Components/Error/Fo
     styleUrls:   ['./HttpErrorFormatterComponent.css'],
 })
 export class HttpErrorFormatterComponent implements ErrorFormatterComponent {
-    public error!: Error;
+    public error!: AppError;
 
     /**
      * @protected

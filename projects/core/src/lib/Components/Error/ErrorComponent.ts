@@ -12,7 +12,7 @@ import {
     ViewChild,
     ViewContainerRef,
 }                                       from '@angular/core';
-import {Error}                          from 'projects/core/src/lib/Classes/AppError';
+import {AppError}                       from 'projects/core/src/lib/Classes/AppError';
 import {DefaultErrorFormatter}          from 'projects/core/src/lib/Components/Error/DefaultErrorFormatter';
 import {ErrorFormatters}                from 'projects/core/src/lib/Components/Error/ErrorFormatters';
 import {DefaultErrorFormatterComponent} from 'projects/core/src/lib/Components/Error/Formatters/DefaultErrorFormatter/DefaultErrorFormatterComponent';
@@ -47,11 +47,11 @@ export class ErrorComponent extends StatefulComponent implements AfterViewInit {
     // <editor-fold desc="Getters / Setters">
     // =========================================================================
     @Input()
-    public get error(): Error | null {
+    public get error(): AppError | null {
         return this.#error;
     }
 
-    public set error(errors: Error | null) {
+    public set error(errors: AppError | null) {
         if (!isEqual(this.error, errors)) {
             this.#error = errors;
             this.update();
@@ -59,7 +59,7 @@ export class ErrorComponent extends StatefulComponent implements AfterViewInit {
         }
     }
 
-    #error: Error | null = null; /* tslint:disable-line:member-access */
+    #error: AppError | null = null; /* tslint:disable-line:member-access */
 
     // </editor-fold>
 
