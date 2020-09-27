@@ -7,20 +7,16 @@ import {DefaultErrorFormatterComponent} from 'projects/core/src/lib/Components/E
 import {HttpErrorFormatterComponent}    from 'projects/core/src/lib/Components/Error/Formatters/HttpErrorFormatter/HttpErrorFormatterComponent';
 
 @NgModule({
-    imports:         [
+    imports:      [
         CommonModule,
     ],
-    declarations:    [
+    declarations: [
         ErrorComponent,
         DefaultErrorFormatterComponent,
         HttpErrorFormatterComponent,
     ],
-    entryComponents: [
-        DefaultErrorFormatterComponent,
-        HttpErrorFormatterComponent,
-    ],
-    exports:         [],
-    providers:       [
+    exports:      [],
+    providers:    [
         ErrorFormattersProvider.provide(),
         {
             provide:  ErrorFormatter,
