@@ -12,8 +12,8 @@ import {
     ViewChild,
     ViewContainerRef,
 }                                       from '@angular/core';
+import {Error}                          from 'projects/core/src/lib/Classes/AppError';
 import {DefaultErrorFormatter}          from 'projects/core/src/lib/Components/Error/DefaultErrorFormatter';
-import {Error}                          from 'projects/core/src/lib/Components/Error/Error';
 import {ErrorFormatters}                from 'projects/core/src/lib/Components/Error/ErrorFormatters';
 import {DefaultErrorFormatterComponent} from 'projects/core/src/lib/Components/Error/Formatters/DefaultErrorFormatter/DefaultErrorFormatterComponent';
 import {ErrorFormatterComponent}        from 'projects/core/src/lib/Components/Error/Formatters/ErrorFormatterComponent';
