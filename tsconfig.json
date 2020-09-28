@@ -22,7 +22,7 @@
       "dom"
     ],
     "paths": {
-      "core": [
+      "@lastdragon-ru/ng-app-kit-core": [
         "dist/core/core",
         "dist/core"
       ],
