@@ -1,7 +1,7 @@
 import {Injectable, Input, ViewChild}      from '@angular/core';
 import {ControlValueAccessor, FormControl} from '@angular/forms';
-import {StatefulComponent}        from 'projects/core/src/lib/Components/StatefulComponent';
-import {ControlValueAccessorImpl} from 'projects/forms/src/lib/Components/ControlValueAccessorImpl';
+import {StatefulComponent}                 from '@lastdragon-ru/ng-app-kit-core';
+import {ControlValueAccessorImpl}          from './ControlValueAccessorImpl';
 
 // @Component({
 //     providers:   [

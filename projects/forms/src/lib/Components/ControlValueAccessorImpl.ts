@@ -7,8 +7,10 @@ import {
     Output,
 }                                          from '@angular/core';
 import {ControlValueAccessor, FormControl} from '@angular/forms';
-import {StatefulComponent}                 from 'projects/core/src/lib/Components/StatefulComponent';
-import {isEqual}                           from 'projects/core/src/lib/Utils/isEqual';
+import {
+    isEqual,
+    StatefulComponent,
+}                                          from '@lastdragon-ru/ng-app-kit-core';
 
 @Injectable()
 export abstract class ControlValueAccessorImpl<V>
