@@ -1,10 +1,10 @@
 import {ElementRef} from '@angular/core';
-import {HashMap}    from 'projects/core/src/lib/Classes/HashMap';
-import {isArray}    from 'projects/core/src/lib/Utils/isArray';
-import {isBoolean}  from 'projects/core/src/lib/Utils/isBoolean';
-import {isHashMap}  from 'projects/core/src/lib/Utils/isHashMap';
-import {isNumber}   from 'projects/core/src/lib/Utils/isNumber';
-import {isString}   from 'projects/core/src/lib/Utils/isString';
+import {HashMap}    from '../Classes/HashMap';
+import {isArray}    from './isArray';
+import {isBoolean}  from './isBoolean';
+import {isHashMap}  from './isHashMap';
+import {isNumber}   from './isNumber';
+import {isString}   from './isString';
 
 export function isEmpty<T>(value: undefined | null | number | string | boolean | Array<T> | Node | ElementRef | HashMap<T>): boolean {
     if (value === null || value === undefined) {

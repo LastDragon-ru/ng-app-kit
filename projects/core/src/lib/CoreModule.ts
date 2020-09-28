@@ -1,10 +1,10 @@
 import {CommonModule}                   from '@angular/common';
 import {NgModule}                       from '@angular/core';
-import {ErrorComponent}                 from 'projects/core/src/lib/Components/Error/ErrorComponent';
-import {ErrorFormatter}                 from 'projects/core/src/lib/Components/Error/ErrorFormatter';
-import {ErrorFormattersProvider}        from 'projects/core/src/lib/Components/Error/ErrorFormattersProvider';
-import {DefaultErrorFormatterComponent} from 'projects/core/src/lib/Components/Error/Formatters/DefaultErrorFormatter/DefaultErrorFormatterComponent';
-import {HttpErrorFormatterComponent}    from 'projects/core/src/lib/Components/Error/Formatters/HttpErrorFormatter/HttpErrorFormatterComponent';
+import {ErrorComponent}                 from './Components/Error/ErrorComponent';
+import {ErrorFormatter}                 from './Components/Error/ErrorFormatter';
+import {ErrorFormattersProvider}        from './Components/Error/ErrorFormattersProvider';
+import {DefaultErrorFormatterComponent} from './Components/Error/Formatters/DefaultErrorFormatter/DefaultErrorFormatterComponent';
+import {HttpErrorFormatterComponent}    from './Components/Error/Formatters/HttpErrorFormatter/HttpErrorFormatterComponent';
 
 @NgModule({
     imports:      [

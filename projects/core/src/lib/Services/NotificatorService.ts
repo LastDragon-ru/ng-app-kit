@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {AppError}   from 'projects/core/src/lib/Classes/AppError';
+import {AppError}   from '../Classes/AppError';
 
 @Injectable({
     providedIn: 'root',

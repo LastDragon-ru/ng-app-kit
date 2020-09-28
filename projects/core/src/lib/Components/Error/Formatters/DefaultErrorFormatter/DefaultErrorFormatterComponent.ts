@@ -1,7 +1,7 @@
 import {Component, Input}        from '@angular/core';
-import {AppError}                from 'projects/core/src/lib/Classes/AppError';
-import {ErrorFormatterComponent} from 'projects/core/src/lib/Components/Error/Formatters/ErrorFormatterComponent';
-import {isString}                from 'projects/core/src/lib/Utils/isString';
+import {AppError}                from '../../../../Classes/AppError';
+import {isString}                from '../../../../Utils/isString';
+import {ErrorFormatterComponent} from '../ErrorFormatterComponent';
 
 @Component({
     templateUrl: './DefaultErrorFormatterComponent.html',

@@ -1,6 +1,6 @@
 import {HttpErrorResponse}                       from '@angular/common/http';
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {isEmpty}                                 from 'projects/core/src/lib/Utils/isEmpty';
+import {isEmpty}                                 from '../../../../Utils/isEmpty';
 import {HttpErrorFormatterComponent}             from './HttpErrorFormatterComponent';
 
 describe('HttpErrorFormatterComponent', () => {

@@ -12,14 +12,14 @@ import {
     ViewChild,
     ViewContainerRef,
 }                                       from '@angular/core';
-import {AppError}                       from 'projects/core/src/lib/Classes/AppError';
-import {DefaultErrorFormatter}          from 'projects/core/src/lib/Components/Error/DefaultErrorFormatter';
-import {ErrorFormatters}                from 'projects/core/src/lib/Components/Error/ErrorFormatters';
-import {DefaultErrorFormatterComponent} from 'projects/core/src/lib/Components/Error/Formatters/DefaultErrorFormatter/DefaultErrorFormatterComponent';
-import {ErrorFormatterComponent}        from 'projects/core/src/lib/Components/Error/Formatters/ErrorFormatterComponent';
-import {StatefulComponent}              from 'projects/core/src/lib/Components/StatefulComponent';
-import {isEmpty}                        from 'projects/core/src/lib/Utils/isEmpty';
-import {isEqual}                        from 'projects/core/src/lib/Utils/isEqual';
+import {AppError}                       from '../../Classes/AppError';
+import {isEmpty}                        from '../../Utils/isEmpty';
+import {isEqual}                        from '../../Utils/isEqual';
+import {StatefulComponent}              from '../StatefulComponent';
+import {DefaultErrorFormatter}          from './DefaultErrorFormatter';
+import {ErrorFormatters}                from './ErrorFormatters';
+import {DefaultErrorFormatterComponent} from './Formatters/DefaultErrorFormatter/DefaultErrorFormatterComponent';
+import {ErrorFormatterComponent}        from './Formatters/ErrorFormatterComponent';
 
 @Component({
     selector:        'kit-error[error]',

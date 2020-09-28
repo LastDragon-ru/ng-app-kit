@@ -1,5 +1,5 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {ErrorComponent}                          from 'projects/core/src/lib/Components/Error/ErrorComponent';
+import {ErrorComponent}                          from './ErrorComponent';
 
 describe('ErrorComponent', () => {
     let component: ErrorComponent;

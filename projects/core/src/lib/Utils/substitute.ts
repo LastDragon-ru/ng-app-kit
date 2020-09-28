@@ -1,4 +1,4 @@
-import {HashMap} from 'projects/core/src/lib/Classes/HashMap';
+import {HashMap} from '../Classes/HashMap';
 
 export function substitute(str: string, parameters: HashMap<string | number | boolean>, formatter: (key: string) => string): string {
     for (const key in parameters) {

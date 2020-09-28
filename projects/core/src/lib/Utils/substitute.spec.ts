@@ -1,6 +1,6 @@
-import {HashMap}    from 'projects/core/src/lib/Classes/HashMap';
-import {substitute} from 'projects/core/src/lib/Utils/substitute';
-import {using}      from 'projects/core/src/lib/Utils/Tests/using';
+import {HashMap}    from '../Classes/HashMap';
+import {substitute} from './substitute';
+import {using}      from './Tests/using';
 
 describe('substitute', () => {
     const formatter = (key: string) => `\{${key}\}`;

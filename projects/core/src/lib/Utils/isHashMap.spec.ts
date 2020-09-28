@@ -1,6 +1,6 @@
-import {HashMap}   from 'projects/core/src/lib/Classes/HashMap';
-import {isHashMap} from 'projects/core/src/lib/Utils/isHashMap';
-import {using}     from 'projects/core/src/lib/Utils/Tests/using';
+import {HashMap}   from '../Classes/HashMap';
+import {isHashMap} from './isHashMap';
+import {using}     from './Tests/using';
 
 describe('isHashMap', () => {
     const dataProvider: HashMap<{ value: any; expected: boolean; }> = { // tslint:disable-line:no-any

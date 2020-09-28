@@ -1,7 +1,7 @@
 import {Optional, Provider, Self, SkipSelf, Type} from '@angular/core';
-import {ErrorFormatter}                           from 'projects/core/src/lib/Components/Error/ErrorFormatter';
-import {ErrorFormatters}                          from 'projects/core/src/lib/Components/Error/ErrorFormatters';
-import {ErrorFormatterComponent}                  from 'projects/core/src/lib/Components/Error/Formatters/ErrorFormatterComponent';
+import {ErrorFormatter}                           from './ErrorFormatter';
+import {ErrorFormatters}                          from './ErrorFormatters';
+import {ErrorFormatterComponent}                  from './Formatters/ErrorFormatterComponent';
 
 export class ErrorFormattersProvider {
     public static provide(): Provider {

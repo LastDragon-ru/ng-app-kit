@@ -1,4 +1,4 @@
-import {AppError} from 'projects/core/src/lib/Classes/AppError';
+import {AppError} from '../../../Classes/AppError';
 
 export interface ErrorFormatterComponent {
     error: AppError;

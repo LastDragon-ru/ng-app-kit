@@ -1,4 +1,4 @@
-import {isFunction} from 'projects/core/src/lib/Utils/isFunction';
+import {isFunction} from '../isFunction';
 
 /**
  * Data Provider Helper.

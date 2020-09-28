@@ -1,5 +1,5 @@
-import {isArray}   from 'projects/core/src/lib/Utils/isArray';
-import {isHashMap} from 'projects/core/src/lib/Utils/isHashMap';
+import {isArray}   from './isArray';
+import {isHashMap} from './isHashMap';
 
 export function isEqual<A, B>(a: A | B, b: B | A): boolean {
     // Same?
