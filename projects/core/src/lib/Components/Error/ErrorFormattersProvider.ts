@@ -11,10 +11,12 @@ export class ErrorFormattersProvider {
                 [new Self(), ErrorFormatter],
                 [new Optional(), new SkipSelf(), ErrorFormatter],
             ],
-            useFactory: (own: Type<ErrorFormatterComponent>[],
-                         formatters?: Type<ErrorFormatterComponent>[]): Type<ErrorFormatterComponent>[] => {
-                return [...(formatters || []), ...own];
-            },
+            useFactory: ErrorFormattersProviderFactory,
         };
     }
+}
+
+export function ErrorFormattersProviderFactory(own: Type<ErrorFormatterComponent>[],
+                                               formatters?: Type<ErrorFormatterComponent>[]): Type<ErrorFormatterComponent>[] {
+    return [...(formatters || []), ...own];
 }
