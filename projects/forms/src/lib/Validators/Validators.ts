@@ -5,8 +5,13 @@ import {
 }                         from '@angular/forms';
 import {FloatValidator}   from './FloatValidator';
 import {IntegerValidator} from './IntegerValidator';
+import {NumberValidator}  from './NumberValidator';
 
 export class Validators extends AngularValidators {
+    public static number(control: AbstractControl): ValidationErrors | null {
+        return NumberValidator(control);
+    }
+
     public static integer(control: AbstractControl): ValidationErrors | null {
         return IntegerValidator(control);
     }
