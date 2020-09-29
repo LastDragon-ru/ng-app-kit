@@ -44,11 +44,11 @@ export abstract class ControlValueAccessorImplWrapper<V>
         this.accessor.writeValue(value);
     }
 
-    public registerOnChange(fn: any): void {
+    public registerOnChange(fn: any): void { // tslint:disable-line:no-any
         this.accessor.registerOnChange(fn);
     }
 
-    public registerOnTouched(fn: any): void {
+    public registerOnTouched(fn: any): void { // tslint:disable-line:no-any
         this.accessor.registerOnTouched(fn);
     }
 
