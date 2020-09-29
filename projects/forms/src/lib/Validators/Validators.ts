@@ -3,12 +3,13 @@ import {
     ValidationErrors,
     ValidatorFn,
     Validators as AngularValidators,
-}                           from '@angular/forms';
-import {BooleanValidator}   from './BooleanValidator';
-import {FloatValidator}     from './FloatValidator';
-import {IntegerValidator}   from './IntegerValidator';
-import {InValidatorFactory} from './InValidatorFactory';
-import {NumberValidator}    from './NumberValidator';
+}                              from '@angular/forms';
+import {BooleanValidator}      from './BooleanValidator';
+import {FloatValidator}        from './FloatValidator';
+import {IntegerValidator}      from './IntegerValidator';
+import {InValidatorFactory}    from './InValidatorFactory';
+import {NotInValidatorFactory} from './NotInValidatorFactory';
+import {NumberValidator}       from './NumberValidator';
 
 export class Validators extends AngularValidators {
     public static number(control: AbstractControl): ValidationErrors | null {
@@ -29,5 +30,9 @@ export class Validators extends AngularValidators {
 
     public static in(values: any[]): ValidatorFn { // tslint:disable-line:no-any
         return InValidatorFactory(values);
+    }
+
+    public static notIn(values: any[]): ValidatorFn { // tslint:disable-line:no-any
+        return NotInValidatorFactory(values);
     }
 }
