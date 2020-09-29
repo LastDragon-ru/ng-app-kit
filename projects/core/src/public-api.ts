@@ -7,7 +7,6 @@ import {HashMap}                 from './lib/Classes/HashMap';
 import {ErrorComponent}          from './lib/Components/Error/ErrorComponent';
 import {ErrorFormatter}          from './lib/Components/Error/ErrorFormatter';
 import {ErrorFormattersProvider} from './lib/Components/Error/ErrorFormattersProvider';
-import {ErrorFormatterComponent} from './lib/Components/Error/Formatters/ErrorFormatterComponent';
 import {StatefulComponent}       from './lib/Components/StatefulComponent';
 import {CoreModule}              from './lib/CoreModule';
 import {NotificatorService}      from './lib/Services/NotificatorService';
@@ -29,9 +28,8 @@ export {
     StatefulComponent,
     AppError,
     ErrorComponent,
-    ErrorFormatter,
     ErrorFormattersProvider,
-    ErrorFormatterComponent,
+    ErrorFormatter,
     NotificatorService,
     isArray,
     isBoolean,
