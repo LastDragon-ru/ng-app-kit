@@ -8,6 +8,10 @@
     "@lastdragon-ru/ng-app-kit-core": "^0.0.1"
   },
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.0",
+    "@lastdragon-ru/ng-app-kit-core": "^0.0.1"
+  },
+  "devDependencies": {
+    "@lastdragon-ru/ng-app-kit-core-testing": "^0.0.1"
   }
 }

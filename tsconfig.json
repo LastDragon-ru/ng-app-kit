@@ -30,7 +30,7 @@
         "dist/core-testing/core-testing",
         "dist/core-testing"
       ],
-      "forms": [
+      "@lastdragon-ru/ng-app-kit-forms": [
         "dist/forms/forms",
         "dist/forms"
       ]
