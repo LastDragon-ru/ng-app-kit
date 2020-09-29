@@ -18,6 +18,7 @@ import {isEqual}                 from './lib/Utils/isEqual';
 import {isFunction}              from './lib/Utils/isFunction';
 import {isHashMap}               from './lib/Utils/isHashMap';
 import {isNumber}                from './lib/Utils/isNumber';
+import {isObject}                from './lib/Utils/isObject';
 import {isString}                from './lib/Utils/isString';
 import {isUndefined}             from './lib/Utils/isUndefined';
 import {substitute}              from './lib/Utils/substitute';
@@ -39,6 +40,7 @@ export {
     isFunction,
     isHashMap,
     isNumber,
+    isObject,
     isString,
     isUndefined,
     substitute,
