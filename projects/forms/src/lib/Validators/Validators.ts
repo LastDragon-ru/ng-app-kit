@@ -10,6 +10,7 @@ import {IntegerValidator}      from './IntegerValidator';
 import {InValidatorFactory}    from './InValidatorFactory';
 import {NotInValidatorFactory} from './NotInValidatorFactory';
 import {NumberValidator}       from './NumberValidator';
+import {SameValidatorFactory}  from './SameValidatorFactory';
 
 export class Validators extends AngularValidators {
     public static number(control: AbstractControl): ValidationErrors | null {
@@ -34,5 +35,9 @@ export class Validators extends AngularValidators {
 
     public static notIn(values: any[]): ValidatorFn { // tslint:disable-line:no-any
         return NotInValidatorFactory(values);
+    }
+
+    public static same(control: AbstractControl | string, confirmation: AbstractControl | string): ValidatorFn {
+        return SameValidatorFactory(control, confirmation);
     }
 }
