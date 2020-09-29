@@ -1,7 +1,7 @@
 import {ElementRef} from '@angular/core';
+import {using}      from '@lastdragon-ru/ng-app-kit-core-testing';
 import {HashMap}    from '../Classes/HashMap';
 import {isEmpty}    from './isEmpty';
-import {using}      from './Tests/using';
 
 describe('isEmpty', () => {
     const dataProvider: HashMap<{ value: any; empty: boolean; error?: true }> = { // tslint:disable-line:no-any

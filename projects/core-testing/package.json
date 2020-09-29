@@ -1,0 +1,12 @@
+{
+  "name": "@lastdragon-ru/ng-app-kit-core-testing",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^10.1.3",
+    "@angular/core": "^10.1.3"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0",
+    "@lastdragon-ru/ng-app-kit-core": "^0.0.1"
+  }
+}

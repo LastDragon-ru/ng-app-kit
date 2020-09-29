@@ -1,4 +1,4 @@
-import {isFunction} from '../isFunction';
+import {isFunction} from '@lastdragon-ru/ng-app-kit-core';
 
 /**
  * Data Provider Helper.

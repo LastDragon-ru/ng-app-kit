@@ -26,6 +26,10 @@
         "dist/core/core",
         "dist/core"
       ],
+      "@lastdragon-ru/ng-app-kit-core-testing": [
+        "dist/core-testing/core-testing",
+        "dist/core-testing"
+      ],
       "forms": [
         "dist/forms/forms",
         "dist/forms"

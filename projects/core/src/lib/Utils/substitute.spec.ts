@@ -1,6 +1,6 @@
+import {using}      from '@lastdragon-ru/ng-app-kit-core-testing';
 import {HashMap}    from '../Classes/HashMap';
 import {substitute} from './substitute';
-import {using}      from './Tests/using';
 
 describe('substitute', () => {
     const formatter = (key: string) => `\{${key}\}`;

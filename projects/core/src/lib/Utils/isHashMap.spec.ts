@@ -1,30 +1,30 @@
+import {using}     from '@lastdragon-ru/ng-app-kit-core-testing';
 import {HashMap}   from '../Classes/HashMap';
 import {isHashMap} from './isHashMap';
-import {using}     from './Tests/using';
 
 describe('isHashMap', () => {
     const dataProvider: HashMap<{ value: any; expected: boolean; }> = { // tslint:disable-line:no-any
-        hashmap:  {
+        hashmap:   {
             value:    {a: 123},
             expected: true,
         },
-        array:    {
+        array:     {
             value:    [1, 2, 3],
             expected: false,
         },
-        date:     {
+        date:      {
             value:    new Date(),
             expected: false,
         },
-        number:   {
+        number:    {
             value:    123,
             expected: false,
         },
-        function: {
+        function:  {
             value:    () => 123,
             expected: false,
         },
-        null: {
+        null:      {
             value:    null,
             expected: false,
         },
