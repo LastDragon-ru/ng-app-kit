@@ -1,5 +1,4 @@
-import {Component, Input}        from '@angular/core';
-import {AppError}                from '../../../../Classes/AppError';
+import {Component}               from '@angular/core';
 import {isString}                from '../../../../Utils/isString';
 import {ErrorFormatterComponent} from '../ErrorFormatterComponent';
 
@@ -7,10 +6,7 @@ import {ErrorFormatterComponent} from '../ErrorFormatterComponent';
     templateUrl: './DefaultErrorFormatterComponent.html',
     styleUrls:   ['./DefaultErrorFormatterComponent.css'],
 })
-export class DefaultErrorFormatterComponent implements ErrorFormatterComponent {
-    @Input()
-    public error!: AppError;
-
+export class DefaultErrorFormatterComponent extends ErrorFormatterComponent {
     /**
      * @protected
      */

@@ -111,7 +111,7 @@ export class ErrorComponent extends StatefulComponent implements AfterViewInit {
         const factory   = this.resolver.resolveComponentFactory(formatter);
         const component = this.container.createComponent(factory);
 
-        component.instance.error = this.error;
+        component.instance.setError(this.error);
 
         return component;
     }

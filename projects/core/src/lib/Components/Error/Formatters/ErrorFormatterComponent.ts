@@ -1,5 +1,9 @@
 import {AppError} from '../../../Classes/AppError';
 
-export interface ErrorFormatterComponent {
-    error: AppError;
+export abstract class ErrorFormatterComponent {
+    protected error: AppError | null = null;
+
+    public setError(error: AppError): void {
+        this.error = error;
+    }
 }

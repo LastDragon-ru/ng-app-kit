@@ -27,14 +27,14 @@ describe('HttpErrorFormatterComponent', () => {
     });
 
     it('error is HttpErrorResponse', () => {
-        component.error = new HttpErrorResponse({status: 404});
+        component.setError(new HttpErrorResponse({status: 404}));
         fixture.detectChanges();
 
         expect(isEmpty(element.textContent)).toBeFalse();
     });
 
     it('error is not HttpErrorResponse', () => {
-        component.error = true;
+        component.setError(true);
         fixture.detectChanges();
 
         expect(isEmpty(element.textContent)).toBeTrue();

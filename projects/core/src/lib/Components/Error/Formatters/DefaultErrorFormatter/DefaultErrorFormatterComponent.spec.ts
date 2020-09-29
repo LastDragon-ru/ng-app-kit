@@ -25,14 +25,14 @@ describe('DefaultErrorFormatterComponent', () => {
     });
 
     it('error is string', () => {
-        component.error = 'test';
+        component.setError('test');
         fixture.detectChanges();
 
         expect(element.textContent).toContain('test');
     });
 
     it('error is not string', () => {
-        component.error = true;
+        component.setError(true);
         fixture.detectChanges();
 
         expect(element.textContent).toContain('Unknown error.');
