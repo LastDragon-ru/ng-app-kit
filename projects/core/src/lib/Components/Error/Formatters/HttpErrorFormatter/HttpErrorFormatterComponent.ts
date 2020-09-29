@@ -1,12 +1,12 @@
-import {HttpErrorResponse}       from '@angular/common/http';
-import {Component}               from '@angular/core';
-import {ErrorFormatterComponent} from '../ErrorFormatterComponent';
+import {HttpErrorResponse} from '@angular/common/http';
+import {Component}         from '@angular/core';
+import {ErrorFormatter}    from '../../ErrorFormatter';
 
 @Component({
     templateUrl: './HttpErrorFormatterComponent.html',
     styleUrls:   ['./HttpErrorFormatterComponent.css'],
 })
-export class HttpErrorFormatterComponent extends ErrorFormatterComponent {
+export class HttpErrorFormatterComponent extends ErrorFormatter {
     /**
      * @protected
      */

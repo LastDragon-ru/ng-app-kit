@@ -1,4 +1,4 @@
-import {InjectionToken, Type}    from '@angular/core';
-import {ErrorFormatterComponent} from './Formatters/ErrorFormatterComponent';
+import {InjectionToken, Type} from '@angular/core';
+import {ErrorFormatter}       from './ErrorFormatter';
 
-export const ErrorFormatterToken = new InjectionToken<Type<ErrorFormatterComponent>[]>('ErrorFormatter');
+export const ErrorFormatterToken = new InjectionToken<Type<ErrorFormatter>[]>('ErrorFormatter');
