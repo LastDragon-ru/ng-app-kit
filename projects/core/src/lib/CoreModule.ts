@@ -1,8 +1,8 @@
 import {CommonModule}                   from '@angular/common';
 import {NgModule}                       from '@angular/core';
 import {ErrorComponent}                 from './Components/Error/ErrorComponent';
-import {ErrorFormatter}                 from './Components/Error/ErrorFormatter';
 import {ErrorFormattersProvider}        from './Components/Error/ErrorFormattersProvider';
+import {ErrorFormatterToken}            from './Components/Error/ErrorFormatterToken';
 import {DefaultErrorFormatterComponent} from './Components/Error/Formatters/DefaultErrorFormatter/DefaultErrorFormatterComponent';
 import {HttpErrorFormatterComponent}    from './Components/Error/Formatters/HttpErrorFormatter/HttpErrorFormatterComponent';
 
@@ -19,7 +19,7 @@ import {HttpErrorFormatterComponent}    from './Components/Error/Formatters/Http
     providers:    [
         ErrorFormattersProvider.provide(),
         {
-            provide:  ErrorFormatter,
+            provide:  ErrorFormatterToken,
             useValue: HttpErrorFormatterComponent,
             multi:    true,
         },

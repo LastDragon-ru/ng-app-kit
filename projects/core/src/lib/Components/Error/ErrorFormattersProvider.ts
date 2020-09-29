@@ -1,6 +1,6 @@
 import {Optional, Provider, Self, SkipSelf, Type} from '@angular/core';
-import {ErrorFormatter}                           from './ErrorFormatter';
 import {ErrorFormatters}                          from './ErrorFormatters';
+import {ErrorFormatterToken}                      from './ErrorFormatterToken';
 import {ErrorFormatterComponent}                  from './Formatters/ErrorFormatterComponent';
 
 export class ErrorFormattersProvider {
@@ -8,8 +8,8 @@ export class ErrorFormattersProvider {
         return {
             provide:    ErrorFormatters,
             deps:       [
-                [new Self(), ErrorFormatter],
-                [new Optional(), new SkipSelf(), ErrorFormatter],
+                [new Self(), ErrorFormatterToken],
+                [new Optional(), new SkipSelf(), ErrorFormatterToken],
             ],
             useFactory: ErrorFormattersProviderFactory,
         };
