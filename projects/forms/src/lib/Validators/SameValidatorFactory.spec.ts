@@ -1,22 +1,17 @@
-import {
-    FormControl,
-    FormGroup,
-    ValidationErrors,
-    ValidatorFn,
-}                             from '@angular/forms';
-import {HashMap}              from '@lastdragon-ru/ng-app-kit-core';
-import {using}                from '@lastdragon-ru/ng-app-kit-core-testing';
-import {SameValidatorFactory} from './SameValidatorFactory';
-import {Validators}           from './Validators';
+import {FormControl, FormGroup, ValidatorFn}      from '@angular/forms';
+import {HashMap}                                  from '@lastdragon-ru/ng-app-kit-core';
+import {using}                                    from '@lastdragon-ru/ng-app-kit-core-testing';
+import {SameValidatorError, SameValidatorFactory} from './SameValidatorFactory';
+import {Validators}                               from './Validators';
 
 describe('ConfirmedValidatorFactory', () => {
     const dataProvider: HashMap<{
         control: any, // tslint:disable-line:no-any
         confirm: any, // tslint:disable-line:no-any
         expected: {
-            parent: ValidationErrors | null,
-            control: ValidationErrors | null,
-            confirm: ValidationErrors | null
+            parent: SameValidatorError | null,
+            control: SameValidatorError | null,
+            confirm: SameValidatorError | null
         }
     }> = {
         'confirmed = true':  {

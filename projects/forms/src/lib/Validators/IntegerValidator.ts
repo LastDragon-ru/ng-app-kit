@@ -1,11 +1,13 @@
-import {AbstractControl, ValidationErrors, ValidatorFn} from '@angular/forms';
-import {
-    isEmpty,
-    isNumber,
-    isObject,
-}                                                       from '@lastdragon-ru/ng-app-kit-core';
+import {AbstractControl, ValidatorFn} from '@angular/forms';
+import {isEmpty, isNumber, isObject}  from '@lastdragon-ru/ng-app-kit-core';
 
-export const IntegerValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+export type IntegerValidatorError = {
+    kitFormsInteger: {
+        actual: any, // tslint:disable-line:no-any
+    }
+};
+
+export const IntegerValidator: ValidatorFn = (control: AbstractControl): IntegerValidatorError | null => {
     if (!isObject(control.value) && isEmpty(control.value)) {
         return null;
     }

@@ -1,11 +1,14 @@
-import {AbstractControl, FormControl, ValidationErrors} from '@angular/forms';
-import {HashMap}                                        from '@lastdragon-ru/ng-app-kit-core';
-import {using}                                          from '@lastdragon-ru/ng-app-kit-core-testing';
-import {NotInValidatorFactory}                          from './NotInValidatorFactory';
-import {Validators}                                     from './Validators';
+import {AbstractControl, FormControl} from '@angular/forms';
+import {HashMap}                      from '@lastdragon-ru/ng-app-kit-core';
+import {using}                        from '@lastdragon-ru/ng-app-kit-core-testing';
+import {
+    NotInValidatorError,
+    NotInValidatorFactory,
+}                                     from './NotInValidatorFactory';
+import {Validators}                   from './Validators';
 
 describe('NotInValidatorFactory', () => {
-    const dataProvider: HashMap<{ value: AbstractControl; values: any[], expected: ValidationErrors | null }> = { // tslint:disable-line:no-any
+    const dataProvider: HashMap<{ value: AbstractControl; values: any[], expected: NotInValidatorError | null }> = { // tslint:disable-line:no-any
         'null value':   {
             value:    new FormControl(null),
             values:   [1, 2, 3],
@@ -15,7 +18,7 @@ describe('NotInValidatorFactory', () => {
             value:    new FormControl(1),
             values:   [1, 2, 3],
             expected: {
-                kitFormsIn: {
+                kitFormsNotIn: {
                     actual: 1,
                     values: [1, 2, 3],
                 },

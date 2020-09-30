@@ -1,12 +1,12 @@
-import {AbstractControl, FormControl, ValidationErrors} from '@angular/forms';
-import {HashMap}                                        from '@lastdragon-ru/ng-app-kit-core';
-import {using}                                          from '@lastdragon-ru/ng-app-kit-core-testing';
-import {NumberValidator}                                from './NumberValidator';
-import {Validators}                                     from './Validators';
+import {AbstractControl, FormControl}          from '@angular/forms';
+import {HashMap}                               from '@lastdragon-ru/ng-app-kit-core';
+import {using}                                 from '@lastdragon-ru/ng-app-kit-core-testing';
+import {NumberValidator, NumberValidatorError} from './NumberValidator';
+import {Validators}                            from './Validators';
 
 describe('NumberValidator', () => {
-    const obj                                                                                  = new Date();
-    const dataProvider: HashMap<{ value: AbstractControl; expected: ValidationErrors | null }> = { // tslint:disable-line:no-any
+    const obj                                                                                      = new Date();
+    const dataProvider: HashMap<{ value: AbstractControl; expected: NumberValidatorError | null }> = { // tslint:disable-line:no-any
         'integer value':          {
             value:    new FormControl(123),
             expected: null,

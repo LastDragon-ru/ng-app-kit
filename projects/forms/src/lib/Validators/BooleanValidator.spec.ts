@@ -1,12 +1,12 @@
-import {AbstractControl, FormControl, ValidationErrors} from '@angular/forms';
-import {HashMap}                                        from '@lastdragon-ru/ng-app-kit-core';
-import {using}                                          from '@lastdragon-ru/ng-app-kit-core-testing';
-import {BooleanValidator}                               from './BooleanValidator';
-import {Validators}                                     from './Validators';
+import {AbstractControl, FormControl}            from '@angular/forms';
+import {HashMap}                                 from '@lastdragon-ru/ng-app-kit-core';
+import {using}                                   from '@lastdragon-ru/ng-app-kit-core-testing';
+import {BooleanValidator, BooleanValidatorError} from './BooleanValidator';
+import {Validators}                              from './Validators';
 
 describe('BooleanValidator', () => {
-    const obj                                                                                  = new Date();
-    const dataProvider: HashMap<{ value: AbstractControl; expected: ValidationErrors | null }> = { // tslint:disable-line:no-any
+    const obj                                                                                       = new Date();
+    const dataProvider: HashMap<{ value: AbstractControl; expected: BooleanValidatorError | null }> = { // tslint:disable-line:no-any
         'integer value':          {
             value:    new FormControl(123),
             expected: {kitFormsBoolean: {actual: 123}},

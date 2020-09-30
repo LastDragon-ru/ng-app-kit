@@ -1,11 +1,15 @@
-import {AbstractControl, ValidationErrors, ValidatorFn} from '@angular/forms';
-import {
-    isEmpty,
-    isObject,
-}                                                       from '@lastdragon-ru/ng-app-kit-core';
+import {AbstractControl, ValidatorFn} from '@angular/forms';
+import {isEmpty, isObject}            from '@lastdragon-ru/ng-app-kit-core';
+
+export type NotInValidatorError = {
+    kitFormsNotIn: {
+        actual: any,   // tslint:disable-line:no-any
+        values: any[], // tslint:disable-line:no-any
+    }
+};
 
 export const NotInValidatorFactory = (values: any[]): ValidatorFn => { // tslint:disable-line:no-any
-    return (control: AbstractControl): ValidationErrors | null => {
+    return (control: AbstractControl): NotInValidatorError | null => {
         if (!isObject(control.value) && isEmpty(control.value)) {
             return null;
         }
@@ -15,7 +19,7 @@ export const NotInValidatorFactory = (values: any[]): ValidatorFn => { // tslint
         }
 
         return {
-            kitFormsIn: {
+            kitFormsNotIn: {
                 actual: control.value,
                 values: values,
             },

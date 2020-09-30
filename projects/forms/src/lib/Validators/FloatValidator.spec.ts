@@ -1,12 +1,12 @@
-import {AbstractControl, FormControl, ValidationErrors} from '@angular/forms';
-import {HashMap}                                        from '@lastdragon-ru/ng-app-kit-core';
-import {using}                                          from '@lastdragon-ru/ng-app-kit-core-testing';
-import {FloatValidator}                                 from './FloatValidator';
-import {Validators}                                     from './Validators';
+import {AbstractControl, FormControl}        from '@angular/forms';
+import {HashMap}                             from '@lastdragon-ru/ng-app-kit-core';
+import {using}                               from '@lastdragon-ru/ng-app-kit-core-testing';
+import {FloatValidator, FloatValidatorError} from './FloatValidator';
+import {Validators}                          from './Validators';
 
 describe('FloatValidator', () => {
-    const obj                                                                                  = new Date();
-    const dataProvider: HashMap<{ value: AbstractControl; expected: ValidationErrors | null }> = { // tslint:disable-line:no-any
+    const obj                                                                                     = new Date();
+    const dataProvider: HashMap<{ value: AbstractControl; expected: FloatValidatorError | null }> = { // tslint:disable-line:no-any
         'integer value':          {
             value:    new FormControl(123),
             expected: {kitFormsFloat: {actual: 123}},
@@ -19,7 +19,7 @@ describe('FloatValidator', () => {
             value:    new FormControl(123.45),
             expected: null,
         },
-        'negative float value':            {
+        'negative float value':   {
             value:    new FormControl(-123.45),
             expected: null,
         },

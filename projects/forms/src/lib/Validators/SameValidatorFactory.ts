@@ -1,9 +1,13 @@
-import {AbstractControl, ValidationErrors, ValidatorFn} from '@angular/forms';
-import {isString}                                       from '@lastdragon-ru/ng-app-kit-core';
+import {AbstractControl, ValidatorFn} from '@angular/forms';
+import {isString}                     from '@lastdragon-ru/ng-app-kit-core';
+
+export type SameValidatorError = {
+    kitFormsSame: boolean,
+};
 
 export const SameValidatorFactory = (control: AbstractControl | string | null,
                                      confirmation: AbstractControl | string | null): ValidatorFn => {
-    return (group: AbstractControl): ValidationErrors | null => {
+    return (group: AbstractControl): null => {
         // Prepare
         control      = isString(control) ? group.get(control) : control;
         confirmation = isString(confirmation) ? group.get(confirmation) : confirmation;
@@ -25,9 +29,11 @@ export const SameValidatorFactory = (control: AbstractControl | string | null,
             confirmation.setErrors(errors);
         } else {
             if (confirmation) {
-                confirmation.setErrors(Object.assign({}, confirmation.errors, {
+                const error: SameValidatorError = {
                     [name]: true,
-                }));
+                };
+
+                confirmation.setErrors(Object.assign({}, confirmation.errors, error));
             }
         }
 

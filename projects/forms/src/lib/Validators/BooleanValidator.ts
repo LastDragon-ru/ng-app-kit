@@ -1,11 +1,13 @@
-import {AbstractControl, ValidationErrors, ValidatorFn} from '@angular/forms';
-import {
-    isBoolean,
-    isEmpty,
-    isObject,
-}                                                       from '@lastdragon-ru/ng-app-kit-core';
+import {AbstractControl, ValidatorFn} from '@angular/forms';
+import {isBoolean, isEmpty, isObject} from '@lastdragon-ru/ng-app-kit-core';
 
-export const BooleanValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+export type BooleanValidatorError = {
+    kitFormsBoolean: {
+        actual: any, // tslint:disable-line:no-any
+    }
+};
+
+export const BooleanValidator: ValidatorFn = (control: AbstractControl): BooleanValidatorError | null => {
     if (!isObject(control.value) && isEmpty(control.value)) {
         return null;
     }
