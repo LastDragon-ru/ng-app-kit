@@ -1,5 +1,6 @@
 import {HttpErrorResponse} from '@angular/common/http';
 import {Component}         from '@angular/core';
+import {AppError}          from '../../../../Classes/AppError';
 import {ErrorFormatter}    from '../../ErrorFormatter';
 
 @Component({
@@ -10,8 +11,12 @@ export class HttpErrorFormatterComponent extends ErrorFormatter {
     /**
      * @protected
      */
-    public get status(): number | null {
-        return this.error instanceof HttpErrorResponse
+    public status: number | null = null;
+
+    public setError(error: AppError): void {
+        super.setError(error);
+
+        this.status = this.error instanceof HttpErrorResponse
             ? this.error.status
             : null;
     }
