@@ -5,7 +5,7 @@ import {IntegerValidator, IntegerValidatorError} from './IntegerValidator';
 import {Validators}                              from './Validators';
 
 describe('IntegerValidator', () => {
-    const obj                                                                                  = new Date();
+    const obj                                                                                       = new Date();
     const dataProvider: HashMap<{ value: AbstractControl; expected: IntegerValidatorError | null }> = { // tslint:disable-line:no-any
         'integer value':          {
             value:    new FormControl(123),

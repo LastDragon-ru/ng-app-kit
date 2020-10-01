@@ -7,19 +7,19 @@ import {NumberValidatorError}  from '../../../Validators/NumberValidator';
 import {SameValidatorError}    from '../../../Validators/SameValidatorFactory';
 
 export type ValidationError = Partial<AngularMinValidatorError
-                                      & AngularMaxValidatorError
-                                      & AngularRequiredValidatorError
-                                      & AngularEmailValidatorError
-                                      & AngularMinLengthValidatorError
-                                      & AngularMaxLengthValidatorError
-                                      & AngularPatternValidatorError
-                                      & BooleanValidatorError
-                                      & FloatValidatorError
-                                      & IntegerValidatorError
-                                      & InValidatorError
-                                      & NotInValidatorError
-                                      & NumberValidatorError
-                                      & SameValidatorError>;
+    & AngularMaxValidatorError
+    & AngularRequiredValidatorError
+    & AngularEmailValidatorError
+    & AngularMinLengthValidatorError
+    & AngularMaxLengthValidatorError
+    & AngularPatternValidatorError
+    & BooleanValidatorError
+    & FloatValidatorError
+    & IntegerValidatorError
+    & InValidatorError
+    & NotInValidatorError
+    & NumberValidatorError
+    & SameValidatorError>;
 
 export type AngularMinValidatorError = { min: { 'min': number, 'actual': unknown } };
 export type AngularMaxValidatorError = { max: { 'max': number, 'actual': unknown } };
