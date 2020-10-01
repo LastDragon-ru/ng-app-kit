@@ -1,0 +1,49 @@
+<ng-container *ngIf="errors">
+    <!-- Angular -->
+    <ng-container *ngIf="errors.required" i18n="@kitForms:kit-error.required">
+        Required.
+    </ng-container>
+    <ng-container *ngIf="errors.min" i18n="@kitForms:kit-error.min">
+        Should be greater than or equal to {{errors.min.min | number}}.
+    </ng-container>
+    <ng-container *ngIf="errors.max" i18n="@kitForms:kit-error.max">
+        Should be less than or equal to {{errors.max.max | number}}.
+    </ng-container>
+    <ng-container *ngIf="errors.email" i18n="@kitForms:kit-error.email">
+        Should be a valid email address.
+    </ng-container>
+    <ng-container *ngIf="errors.minlength" i18n="@kitForms:kit-error.min-length">
+        Should be greater than {{errors.minlength.requiredLength | number}} {errors.minlength.requiredLength, plural, =1 {character} other {characters}},
+        {{errors.minlength.actualLength | number}} {errors.minlength.actualLength, plural, =1 {character} other {characters}} now.
+    </ng-container>
+    <ng-container *ngIf="errors.maxlength" i18n="@kitForms:kit-error.max-length">
+        Should be less than {{errors.maxlength.requiredLength | number}} {errors.maxlength.requiredLength, plural, =1 {character} other {characters}},
+        {{errors.maxlength.actualLength | number}} {errors.maxlength.actualLength, plural, =1 {character} other {characters}} now.
+    </ng-container>
+    <ng-container *ngIf="errors.pattern" i18n="@kitForms:kit-error.pattern">
+        Should match the required pattern.
+    </ng-container>
+
+    <!-- Our -->
+    <ng-container *ngIf="errors.kitFormsBoolean" i18n="@kitForms:kit-error.boolean">
+        Should be a boolean.
+    </ng-container>
+    <ng-container *ngIf="errors.kitFormsFloat" i18n="@kitForms:kit-error.float">
+        Should be a float number.
+    </ng-container>
+    <ng-container *ngIf="errors.kitFormsInteger" i18n="@kitForms:kit-error.integer">
+        Should be an integer.
+    </ng-container>
+    <ng-container *ngIf="errors.kitFormsNumber" i18n="@kitForms:kit-error.number">
+        Should be a number.
+    </ng-container>
+    <ng-container *ngIf="errors.kitFormsIn" i18n="@kitForms:kit-error.in">
+        Should be a valid value.
+    </ng-container>
+    <ng-container *ngIf="errors.kitFormsNotIn" i18n="@kitForms:kit-error.not-in">
+        Should be a valid value.
+    </ng-container>
+    <ng-container *ngIf="errors.kitFormsSame" i18n="@kitForms:kit-error.same">
+        Should have the same value.
+    </ng-container>
+</ng-container>
