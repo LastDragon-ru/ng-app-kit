@@ -1,12 +1,12 @@
-import {BooleanValidatorError} from '../../../Validators/BooleanValidator';
-import {FloatValidatorError}   from '../../../Validators/FloatValidator';
-import {IntegerValidatorError} from '../../../Validators/IntegerValidator';
-import {InValidatorError}      from '../../../Validators/InValidatorFactory';
-import {NotInValidatorError}   from '../../../Validators/NotInValidatorFactory';
-import {NumberValidatorError}  from '../../../Validators/NumberValidator';
-import {SameValidatorError}    from '../../../Validators/SameValidatorFactory';
+import {BooleanValidatorError} from '../Validators/BooleanValidator';
+import {FloatValidatorError}   from '../Validators/FloatValidator';
+import {IntegerValidatorError} from '../Validators/IntegerValidator';
+import {InValidatorError}      from '../Validators/InValidatorFactory';
+import {NotInValidatorError}   from '../Validators/NotInValidatorFactory';
+import {NumberValidatorError}  from '../Validators/NumberValidator';
+import {SameValidatorError}    from '../Validators/SameValidatorFactory';
 
-export type ValidationError = Partial<AngularMinValidatorError
+export type ValidationErrors = Partial<AngularMinValidatorError
     & AngularMaxValidatorError
     & AngularRequiredValidatorError
     & AngularEmailValidatorError
