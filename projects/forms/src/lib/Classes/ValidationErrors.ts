@@ -1,3 +1,4 @@
+import {HashMap}               from '@lastdragon-ru/ng-app-kit-core';
 import {BooleanValidatorError} from '../Validators/BooleanValidator';
 import {FloatValidatorError}   from '../Validators/FloatValidator';
 import {IntegerValidatorError} from '../Validators/IntegerValidator';
@@ -6,7 +7,8 @@ import {NotInValidatorError}   from '../Validators/NotInValidatorFactory';
 import {NumberValidatorError}  from '../Validators/NumberValidator';
 import {SameValidatorError}    from '../Validators/SameValidatorFactory';
 
-export type ValidationErrors = Partial<AngularMinValidatorError
+export type ValidationErrors = Partial<HashMap<unknown>
+    & AngularMinValidatorError
     & AngularMaxValidatorError
     & AngularRequiredValidatorError
     & AngularEmailValidatorError
