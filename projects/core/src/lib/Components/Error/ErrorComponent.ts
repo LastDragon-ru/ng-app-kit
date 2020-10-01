@@ -17,9 +17,9 @@ import {isEmpty}                        from '../../Utils/isEmpty';
 import {isEqual}                        from '../../Utils/isEqual';
 import {StatefulComponent}              from '../StatefulComponent';
 import {DefaultErrorFormatter}          from './DefaultErrorFormatter';
-import {ErrorFormatter}                 from './ErrorFormatter';
 import {ErrorFormatters}                from './ErrorFormatters';
 import {DefaultErrorFormatterComponent} from './Formatters/DefaultErrorFormatter/DefaultErrorFormatterComponent';
+import {ErrorFormatterComponent}        from './Formatters/ErrorFormatterComponent';
 
 @Component({
     selector:        'kit-error[error]',
@@ -28,16 +28,16 @@ import {DefaultErrorFormatterComponent} from './Formatters/DefaultErrorFormatter
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ErrorComponent extends StatefulComponent implements AfterViewInit {
-    private formatters: Type<ErrorFormatter>[];
-    private defaultFormatter: Type<ErrorFormatter>;
+    private formatters: Type<ErrorFormatterComponent>[];
+    private defaultFormatter: Type<ErrorFormatterComponent>;
 
     @ViewChild('template', {read: ViewContainerRef})
     private container!: ViewContainerRef;
 
     public constructor(cdr: ChangeDetectorRef,
                        private resolver: ComponentFactoryResolver,
-                       @Inject(ErrorFormatters) @Optional() formatters: Type<ErrorFormatter>[] | null,
-                       @Inject(DefaultErrorFormatter) @Optional() defaultFormatter: Type<ErrorFormatter> | null) {
+                       @Inject(ErrorFormatters) @Optional() formatters: Type<ErrorFormatterComponent>[] | null,
+                       @Inject(DefaultErrorFormatter) @Optional() defaultFormatter: Type<ErrorFormatterComponent> | null) {
         super(cdr);
 
         this.formatters       = formatters || [];
@@ -107,7 +107,7 @@ export class ErrorComponent extends StatefulComponent implements AfterViewInit {
         return isEmpty(this.container.element);
     }
 
-    private render(formatter: Type<ErrorFormatter>): ComponentRef<ErrorFormatter> {
+    private render(formatter: Type<ErrorFormatterComponent>): ComponentRef<ErrorFormatterComponent> {
         const factory   = this.resolver.resolveComponentFactory(formatter);
         const component = this.container.createComponent(factory);
 

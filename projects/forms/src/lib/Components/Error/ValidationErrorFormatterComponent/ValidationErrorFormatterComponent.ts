@@ -1,7 +1,7 @@
 import {Component}        from '@angular/core';
 import {
     AppError,
-    ErrorFormatter,
+    ErrorFormatterComponent,
     isHashMap,
 }                         from '@lastdragon-ru/ng-app-kit-core';
 import {ValidationErrors} from '../../../Classes/ValidationErrors';
@@ -10,7 +10,7 @@ import {ValidationErrors} from '../../../Classes/ValidationErrors';
     templateUrl: './ValidationErrorFormatterComponent.html',
     styleUrls:   ['./ValidationErrorFormatterComponent.css'],
 })
-export class ValidationErrorFormatterComponent extends ErrorFormatter {
+export class ValidationErrorFormatterComponent extends ErrorFormatterComponent {
     /**
      * @protected
      */

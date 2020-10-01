@@ -1,13 +1,13 @@
-import {HttpErrorResponse} from '@angular/common/http';
-import {Component}         from '@angular/core';
-import {AppError}          from '../../../../Classes/AppError';
-import {ErrorFormatter}    from '../../ErrorFormatter';
+import {HttpErrorResponse}       from '@angular/common/http';
+import {Component}               from '@angular/core';
+import {AppError}                from '../../../../Classes/AppError';
+import {ErrorFormatterComponent} from '../ErrorFormatterComponent';
 
 @Component({
     templateUrl: './HttpErrorFormatterComponent.html',
     styleUrls:   ['./HttpErrorFormatterComponent.css'],
 })
-export class HttpErrorFormatterComponent extends ErrorFormatter {
+export class HttpErrorFormatterComponent extends ErrorFormatterComponent {
     /**
      * @protected
      */

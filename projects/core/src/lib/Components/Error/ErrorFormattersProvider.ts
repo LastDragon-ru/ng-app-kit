@@ -1,6 +1,7 @@
 import {Optional, Provider, Self, SkipSelf, Type} from '@angular/core';
 import {ErrorFormatter}                           from './ErrorFormatter';
 import {ErrorFormatters}                          from './ErrorFormatters';
+import {ErrorFormatterComponent}                  from './Formatters/ErrorFormatterComponent';
 
 export class ErrorFormattersProvider {
     public static provide(): Provider {
@@ -15,7 +16,7 @@ export class ErrorFormattersProvider {
     }
 }
 
-export function ErrorFormattersProviderFactory(own: Type<ErrorFormatter>[],
-                                               formatters?: Type<ErrorFormatter>[]): Type<ErrorFormatter>[] {
+export function ErrorFormattersProviderFactory(own: Type<ErrorFormatterComponent>[],
+                                               formatters?: Type<ErrorFormatterComponent>[]): Type<ErrorFormatterComponent>[] {
     return [...(formatters || []), ...own];
 }

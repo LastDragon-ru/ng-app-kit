@@ -1,13 +1,13 @@
-import {Component}      from '@angular/core';
-import {AppError}       from '../../../../Classes/AppError';
-import {isString}       from '../../../../Utils/isString';
-import {ErrorFormatter} from '../../ErrorFormatter';
+import {Component}               from '@angular/core';
+import {AppError}                from '../../../../Classes/AppError';
+import {isString}                from '../../../../Utils/isString';
+import {ErrorFormatterComponent} from '../ErrorFormatterComponent';
 
 @Component({
     templateUrl: './DefaultErrorFormatterComponent.html',
     styleUrls:   ['./DefaultErrorFormatterComponent.css'],
 })
-export class DefaultErrorFormatterComponent extends ErrorFormatter {
+export class DefaultErrorFormatterComponent extends ErrorFormatterComponent {
     /**
      * @protected
      */

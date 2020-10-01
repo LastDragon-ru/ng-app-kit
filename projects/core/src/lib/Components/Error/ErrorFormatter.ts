@@ -1,9 +1,4 @@
-import {AppError} from '../../Classes/AppError';
+import {InjectionToken, Type}    from '@angular/core';
+import {ErrorFormatterComponent} from './Formatters/ErrorFormatterComponent';
 
-export abstract class ErrorFormatter {
-    protected error: AppError | null = null;
-
-    public setError(error: AppError): void {
-        this.error = error;
-    }
-}
+export const ErrorFormatter = new InjectionToken<Type<ErrorFormatterComponent>[]>('ErrorFormatter');

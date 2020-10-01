@@ -1,6 +1,6 @@
-import {InjectionToken, Type} from '@angular/core';
-import {ErrorFormatter}       from './ErrorFormatter';
+import {InjectionToken, Type}    from '@angular/core';
+import {ErrorFormatterComponent} from './Formatters/ErrorFormatterComponent';
 
 // TODO [?] Is it really needed?
 
-export const DefaultErrorFormatter = new InjectionToken<Type<ErrorFormatter>>('DefaultErrorFormatter');
+export const DefaultErrorFormatter = new InjectionToken<Type<ErrorFormatterComponent>>('DefaultErrorFormatter');
