@@ -2,6 +2,7 @@
 // and framework files
 
 import {getTestBed} from '@angular/core/testing';
+import '@angular/localize/init';
 import {
     BrowserDynamicTestingModule,
     platformBrowserDynamicTesting,
