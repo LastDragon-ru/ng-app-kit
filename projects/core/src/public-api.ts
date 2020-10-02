@@ -4,6 +4,7 @@
 
 import {AppError}                from './lib/Classes/AppError';
 import {HashMap}                 from './lib/Classes/HashMap';
+import {Template}                from './lib/Classes/Template';
 import {ErrorComponent}          from './lib/Components/Error/ErrorComponent';
 import {ErrorFormatter}          from './lib/Components/Error/ErrorFormatter';
 import {ErrorFormattersProvider} from './lib/Components/Error/ErrorFormattersProvider';
@@ -26,6 +27,7 @@ import {substitute}              from './lib/Utils/substitute';
 export {
     CoreModule as AppKitCoreModule,
     HashMap,
+    Template,
     StatefulComponent,
     AppError,
     ErrorComponent,

@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {AppError}   from '../Classes/AppError';
+import {Template}   from '../Classes/Template';
 
 @Injectable({
     providedIn: 'root',
@@ -11,11 +12,11 @@ export class NotificatorService {
 
     // <editor-fold desc="API">
     // =========================================================================
-    public success(message?: string): void {
+    public success<T>(message: Template<T> | null = null): void {
         console.log(message);
     }
 
-    public error(error?: AppError | null): void {
+    public error<T>(error: Template<T> | AppError | null = null): void {
         if (error === false) {
             return;
         }
