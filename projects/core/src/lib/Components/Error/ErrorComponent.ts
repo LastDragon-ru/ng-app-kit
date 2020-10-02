@@ -28,8 +28,8 @@ import {ErrorFormatterComponent}        from './Formatters/ErrorFormatterCompone
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ErrorComponent extends StatefulComponent implements AfterViewInit {
-    private formatters: Type<ErrorFormatterComponent>[];
-    private defaultFormatter: Type<ErrorFormatterComponent>;
+    private readonly formatters: Type<ErrorFormatterComponent>[];
+    private readonly defaultFormatter: Type<ErrorFormatterComponent>;
 
     @ViewChild('template', {read: ViewContainerRef})
     private container!: ViewContainerRef;
