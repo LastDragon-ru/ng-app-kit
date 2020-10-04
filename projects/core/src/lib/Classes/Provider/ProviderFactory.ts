@@ -10,8 +10,10 @@ import {Token}      from './Token';
 import {Tokenized}  from './Tokenized';
 
 export class ProviderFactory<T> {
-    public constructor(private token: Token<T>,
-                       private isMulti: boolean = false) {
+    public constructor(
+        private token: Token<T>,
+        private isMulti: boolean = false,
+    ) {
     }
 
     public multi(multi: boolean = true): this {

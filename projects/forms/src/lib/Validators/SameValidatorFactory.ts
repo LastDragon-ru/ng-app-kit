@@ -5,8 +5,10 @@ export type SameValidatorError = {
     kitFormsSame: boolean,
 };
 
-export const SameValidatorFactory = (control: AbstractControl | string | null,
-                                     confirmation: AbstractControl | string | null): ValidatorFn => {
+export const SameValidatorFactory = (
+    control: AbstractControl | string | null,
+    confirmation: AbstractControl | string | null,
+): ValidatorFn => {
     return (group: AbstractControl): null => {
         // Prepare
         control      = isString(control) ? group.get(control) : control;

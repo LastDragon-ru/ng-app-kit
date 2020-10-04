@@ -16,8 +16,8 @@ import {AppError}                       from '../../Classes/AppError';
 import {isEmpty}                        from '../../Utils/isEmpty';
 import {isEqual}                        from '../../Utils/isEqual';
 import {StatefulComponent}              from '../StatefulComponent';
-import {ErrorFormatterDefault}          from './ErrorFormatterDefault';
 import {ErrorFormatter}                 from './ErrorFormatter';
+import {ErrorFormatterDefault}          from './ErrorFormatterDefault';
 import {ErrorFormatters}                from './ErrorFormatters';
 import {DefaultErrorFormatterComponent} from './Formatters/DefaultErrorFormatter/DefaultErrorFormatterComponent';
 import {ErrorFormatterComponent}        from './Formatters/ErrorFormatterComponent';
@@ -32,13 +32,15 @@ export class ErrorComponent extends StatefulComponent implements AfterViewInit {
     @ViewChild('template', {read: ViewContainerRef})
     private container!: ViewContainerRef;
 
-    public constructor(cdr: ChangeDetectorRef,
-                       private readonly resolver: ComponentFactoryResolver,
-                       private readonly defaultFormatters: ErrorFormatters,
-                       @Inject(ErrorFormatter) @Optional()
-                       private readonly formatters: Type<ErrorFormatterComponent>[]            = [],
-                       @Inject(ErrorFormatterDefault) @Optional()
-                       private readonly defaultFormatter: Type<ErrorFormatterComponent> | null = null) {
+    public constructor(
+        cdr: ChangeDetectorRef,
+        private readonly resolver: ComponentFactoryResolver,
+        private readonly defaultFormatters: ErrorFormatters,
+        @Inject(ErrorFormatter) @Optional()
+        private readonly formatters: Type<ErrorFormatterComponent>[]            = [],
+        @Inject(ErrorFormatterDefault) @Optional()
+        private readonly defaultFormatter: Type<ErrorFormatterComponent> | null = null,
+    ) {
         super(cdr);
     }
 
