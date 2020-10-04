@@ -8,7 +8,8 @@ import {Provider}                from './lib/Classes/Provider';
 import {Template}                from './lib/Classes/Template';
 import {ErrorComponent}          from './lib/Components/Error/ErrorComponent';
 import {ErrorFormatter}          from './lib/Components/Error/ErrorFormatter';
-import {ErrorFormattersProvider} from './lib/Components/Error/ErrorFormattersProvider';
+import {ErrorFormatterDefault}   from './lib/Components/Error/ErrorFormatterDefault';
+import {ErrorFormatters}         from './lib/Components/Error/ErrorFormatters';
 import {ErrorFormatterComponent} from './lib/Components/Error/Formatters/ErrorFormatterComponent';
 import {StatefulComponent}       from './lib/Components/StatefulComponent';
 import {CoreModule}              from './lib/CoreModule';
@@ -34,7 +35,8 @@ export {
     AppError,
     ErrorComponent,
     ErrorFormatter,
-    ErrorFormattersProvider,
+    ErrorFormatters,
+    ErrorFormatterDefault,
     ErrorFormatterComponent,
     NotificatorService,
     isArray,

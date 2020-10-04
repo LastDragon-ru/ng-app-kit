@@ -16,7 +16,8 @@ import {AppError}                       from '../../Classes/AppError';
 import {isEmpty}                        from '../../Utils/isEmpty';
 import {isEqual}                        from '../../Utils/isEqual';
 import {StatefulComponent}              from '../StatefulComponent';
-import {DefaultErrorFormatter}          from './DefaultErrorFormatter';
+import {ErrorFormatterDefault}          from './ErrorFormatterDefault';
+import {ErrorFormatter}                 from './ErrorFormatter';
 import {ErrorFormatters}                from './ErrorFormatters';
 import {DefaultErrorFormatterComponent} from './Formatters/DefaultErrorFormatter/DefaultErrorFormatterComponent';
 import {ErrorFormatterComponent}        from './Formatters/ErrorFormatterComponent';
@@ -28,20 +29,17 @@ import {ErrorFormatterComponent}        from './Formatters/ErrorFormatterCompone
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ErrorComponent extends StatefulComponent implements AfterViewInit {
-    private readonly formatters: Type<ErrorFormatterComponent>[];
-    private readonly defaultFormatter: Type<ErrorFormatterComponent>;
-
     @ViewChild('template', {read: ViewContainerRef})
     private container!: ViewContainerRef;
 
     public constructor(cdr: ChangeDetectorRef,
-                       private resolver: ComponentFactoryResolver,
-                       @Inject(ErrorFormatters) @Optional() formatters: Type<ErrorFormatterComponent>[] | null,
-                       @Inject(DefaultErrorFormatter) @Optional() defaultFormatter: Type<ErrorFormatterComponent> | null) {
+                       private readonly resolver: ComponentFactoryResolver,
+                       private readonly defaultFormatters: ErrorFormatters,
+                       @Inject(ErrorFormatter) @Optional()
+                       private readonly formatters: Type<ErrorFormatterComponent>[]            = [],
+                       @Inject(ErrorFormatterDefault) @Optional()
+                       private readonly defaultFormatter: Type<ErrorFormatterComponent> | null = null) {
         super(cdr);
-
-        this.formatters       = formatters || [];
-        this.defaultFormatter = defaultFormatter || DefaultErrorFormatterComponent;
     }
 
     // <editor-fold desc="Getters / Setters">
@@ -89,17 +87,19 @@ export class ErrorComponent extends StatefulComponent implements AfterViewInit {
         }
 
         // Render
-        for (const formatter of this.formatters) {
+        const formatters = [
+            ...this.formatters,                                         // Formatters from providers[]
+            ...this.defaultFormatters,                                  // Formatters from libraries/modules
+            this.defaultFormatter || DefaultErrorFormatterComponent,    // Default formatter from providers[]
+            DefaultErrorFormatterComponent,                             // Last
+        ];
+
+        for (const formatter of formatters) {
             this.render(formatter);
 
             if (!this.isEmpty()) {
                 break;
             }
-        }
-
-        // Default
-        if (this.isEmpty()) {
-            this.render(this.defaultFormatter);
         }
     }
 
