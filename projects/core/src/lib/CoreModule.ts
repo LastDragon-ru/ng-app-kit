@@ -1,5 +1,6 @@
 import {CommonModule}                   from '@angular/common';
 import {NgModule}                       from '@angular/core';
+import {Provider}                       from './Classes/Provider';
 import {ErrorComponent}                 from './Components/Error/ErrorComponent';
 import {ErrorFormatter}                 from './Components/Error/ErrorFormatter';
 import {ErrorFormattersProvider}        from './Components/Error/ErrorFormattersProvider';
@@ -18,11 +19,7 @@ import {HttpErrorFormatterComponent}    from './Components/Error/Formatters/Http
     exports:      [],
     providers:    [
         ErrorFormattersProvider.provide(),
-        {
-            provide:  ErrorFormatter,
-            useValue: HttpErrorFormatterComponent,
-            multi:    true,
-        },
+        Provider(ErrorFormatter).useExisting(HttpErrorFormatterComponent),
     ],
 })
 export class CoreModule {
