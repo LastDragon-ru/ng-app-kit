@@ -1,10 +1,21 @@
-import {Observable} from 'rxjs';
-import {Template}   from '../Classes/Template';
+import {Observable, of}    from 'rxjs';
+import {filter, switchMap} from 'rxjs/operators';
+import {Template}          from '../Classes/Template';
 
 export abstract class ConfirmatorService {
     public abstract confirm<T>(message?: Template<T> | null): Observable<boolean>;
 
-    public abstract confirmed<T>(message?: Template<T> | null): Observable<void>;
+    public confirmed<T>(message?: Template<T> | null): Observable<void> {
+        return this.confirm(message).pipe(
+            filter((confirmed: boolean) => confirmed),
+            switchMap(() => of(void (0))),
+        );
+    }
 
-    public abstract rejected<T>(message?: Template<T> | null): Observable<void>;
+    public rejected<T>(message?: Template<T> | null): Observable<void> {
+        return this.confirm(message).pipe(
+            filter((confirmed: boolean) => !confirmed),
+            switchMap(() => of(void (0))),
+        );
+    }
 }
