@@ -13,6 +13,7 @@ import {ErrorFormatters}         from './lib/Components/Error/ErrorFormatters';
 import {ErrorFormatterComponent} from './lib/Components/Error/Formatters/ErrorFormatterComponent';
 import {StatefulComponent}       from './lib/Components/StatefulComponent';
 import {CoreModule}              from './lib/CoreModule';
+import {ConfirmatorService}      from './lib/Services/ConfirmatorService';
 import {NotificatorService}      from './lib/Services/NotificatorService';
 import {isArray}                 from './lib/Utils/isArray';
 import {isBoolean}               from './lib/Utils/isBoolean';
@@ -38,6 +39,7 @@ export {
     ErrorFormatters,
     ErrorFormatterDefault,
     ErrorFormatterComponent,
+    ConfirmatorService,
     NotificatorService,
     isArray,
     isBoolean,
