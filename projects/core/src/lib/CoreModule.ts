@@ -6,15 +6,19 @@ import {DefaultErrorFormatterComponent} from './Components/Error/Formatters/Defa
 import {HttpErrorFormatterComponent}    from './Components/Error/Formatters/HttpErrorFormatter/HttpErrorFormatterComponent';
 
 @NgModule({
-    imports:      [
+    imports:         [
         CommonModule,
     ],
-    declarations: [
+    declarations:    [
         ErrorComponent,
         DefaultErrorFormatterComponent,
         HttpErrorFormatterComponent,
     ],
-    exports:      [],
+    exports:         [],
+    entryComponents: [
+        DefaultErrorFormatterComponent,
+        HttpErrorFormatterComponent,
+    ],
 })
 export class CoreModule {
     public constructor(formatters: ErrorFormatters) {
