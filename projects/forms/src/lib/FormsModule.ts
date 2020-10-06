@@ -5,14 +5,17 @@ import {ErrorFormatters}                   from '@lastdragon-ru/ng-app-kit-core'
 import {ValidationErrorFormatterComponent} from './Components/Error/ValidationErrorFormatterComponent/ValidationErrorFormatterComponent';
 
 @NgModule({
-    imports:      [
+    imports:         [
         CommonModule,
         ReactiveFormsModule,
     ],
-    declarations: [
+    declarations:    [
         ValidationErrorFormatterComponent,
     ],
-    exports:      [],
+    exports:         [],
+    entryComponents: [
+        ValidationErrorFormatterComponent,
+    ],
 })
 export class FormsModule {
     public constructor(formatters: ErrorFormatters) {
