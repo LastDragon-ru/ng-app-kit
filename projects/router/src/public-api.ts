@@ -8,6 +8,10 @@ import {ConfirmDeactivation}  from './lib/Guards/CanDeactivateGuard/ConfirmDeact
 import {Resolver}             from './lib/Resolvers/Resolver';
 import {ResolverErrorHandler} from './lib/Resolvers/ResolverErrorHandler';
 import {RouterModule}         from './lib/RouterModule';
+import {Link}                 from './lib/Services/RouterService/Link';
+import {NavExtras}            from './lib/Services/RouterService/NavExtras';
+import {NavRelativeTo}        from './lib/Services/RouterService/NavRelativeTo';
+import {RouterService}        from './lib/Services/RouterService/RouterService';
 
 export {
     RouterModule as AppKitRouterModule,
@@ -16,4 +20,8 @@ export {
     ConfirmDeactivation,
     Resolver,
     ResolverErrorHandler,
+    Link,
+    NavExtras,
+    NavRelativeTo,
+    RouterService,
 };
