@@ -1,4 +1,17 @@
 {
   "extends": "../../tslint.json",
-  "rules": {}
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "kitRouter",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "kit-router",
+      "kebab-case"
+    ]
+  }
 }
