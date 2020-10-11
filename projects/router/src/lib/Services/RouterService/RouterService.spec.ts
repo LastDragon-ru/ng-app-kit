@@ -177,7 +177,7 @@ describe('RouterService', () => {
         const dataProvider: { root: string; expected: string | null; }[] = [
             {
                 root:     '/',
-                expected: null,
+                expected: '/',
             },
             {
                 root:     '/url',

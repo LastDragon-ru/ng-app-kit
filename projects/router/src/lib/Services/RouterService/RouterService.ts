@@ -103,16 +103,16 @@ export class RouterService {
 
     /**
      * Returns the parent route for the current route. The parent route is the
-     * nearest route up in the tree that has `children`.
+     * nearest route up in the tree that has `children` or the `getModuleRoute()`.
      */
-    public getParentRoute(): ActivatedRoute | null {
+    public getParentRoute(): ActivatedRoute {
         const current        = this.getCurrentRoute();
         const isCurrentEmpty = !(current && current.routeConfig && current.routeConfig.path);
 
         return this.findRoute((route) => {
             return route.children.length > 0
                 && !(isCurrentEmpty && current && route.children.includes(current));
-        });
+        }) || this.getModuleRoute();
     }
 
     /**
