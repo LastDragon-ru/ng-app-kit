@@ -15,7 +15,7 @@ import {HttpErrorFormatterComponent}    from './Components/Error/Formatters/Http
         HttpErrorFormatterComponent,
     ],
     exports:         [],
-    entryComponents: [
+    entryComponents: [ // TODO [#4] Drop `entryComponents`
         DefaultErrorFormatterComponent,
         HttpErrorFormatterComponent,
     ],

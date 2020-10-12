@@ -13,7 +13,7 @@ import {ValidationErrorFormatterComponent} from './Components/Error/ValidationEr
         ValidationErrorFormatterComponent,
     ],
     exports:         [],
-    entryComponents: [
+    entryComponents: [ // TODO [#4] Drop `entryComponents`
         ValidationErrorFormatterComponent,
     ],
 })
