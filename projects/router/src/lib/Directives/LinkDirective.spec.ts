@@ -86,61 +86,63 @@ describe('LinkDirective', () => {
 
     // <editor-fold desc="Tests">
     // =========================================================================
-    const dataProviderAppLink: HashMap<{ selector: string, expected: string }> = {
-        'absolute url':             {
-            selector: '#appLinkAbsolute',
-            expected: '/url',
-        },
-        'absolute url with params': {
-            selector: '#appLinkAbsoluteWithParams',
-            expected: '/object/123/edit',
-        },
-        'relative url':             {
-            selector: '#appLinkRelative',
-            expected: '/object',
-        },
-        'relative to null':         {
-            selector: '#appLinkRelativeToNull',
-            expected: '/url',
-        },
-        'relative to <route>':      {
-            selector: '#appLinkRelativeToRoute',
-            expected: '/object',
-        },
-        'relative to "current"':    {
-            selector: '#appLinkRelativeToCurrent',
-            expected: '/object',
-        },
-        'relative to "parent"':     {
-            selector: '#appLinkRelativeToParent',
-            expected: '/object/123/edit',
-        },
-        'relative url with params': {
-            selector: '#appLinkRelativeWithParams',
-            expected: '/object/123/edit',
-        },
-        '<a appLink="url"></a>':    {
-            selector: '#appLinkInvalid',
-            expected: '/object/404/edit',
-        },
-    };
-
     it('/object/404/edit', () => {
         expect(router.url).toEqual('/object/404/edit');
     });
 
-    using(dataProviderAppLink, (description, data) => {
-        it(description, fakeAsync(() => {
-            const link: HTMLElement = fixture.debugElement.query(By.css(data.selector)).nativeElement;
+    describe('click()', () => {
+        const dataProvider: HashMap<{ selector: string, expected: string }> = {
+            'absolute url':             {
+                selector: '#appLinkAbsolute',
+                expected: '/url',
+            },
+            'absolute url with params': {
+                selector: '#appLinkAbsoluteWithParams',
+                expected: '/object/123/edit',
+            },
+            'relative url':             {
+                selector: '#appLinkRelative',
+                expected: '/object',
+            },
+            'relative to null':         {
+                selector: '#appLinkRelativeToNull',
+                expected: '/url',
+            },
+            'relative to <route>':      {
+                selector: '#appLinkRelativeToRoute',
+                expected: '/object',
+            },
+            'relative to "current"':    {
+                selector: '#appLinkRelativeToCurrent',
+                expected: '/object',
+            },
+            'relative to "parent"':     {
+                selector: '#appLinkRelativeToParent',
+                expected: '/object/123/edit',
+            },
+            'relative url with params': {
+                selector: '#appLinkRelativeWithParams',
+                expected: '/object/123/edit',
+            },
+            '<a appLink="url"></a>':    {
+                selector: '#appLinkInvalid',
+                expected: '/object/404/edit',
+            },
+        };
 
-            expect(link).toBeInstanceOf(HTMLElement);
+        using(dataProvider, (description, data) => {
+            it(description, fakeAsync(() => {
+                const link: HTMLElement = fixture.debugElement.query(By.css(data.selector)).nativeElement;
 
-            link.click();
+                expect(link).toBeInstanceOf(HTMLElement);
 
-            tick();
+                link.click();
 
-            expect(router.url).toEqual(data.expected);
-        }));
+                tick();
+
+                expect(router.url).toEqual(data.expected);
+            }));
+        });
     });
     // </editor-fold>
 });
