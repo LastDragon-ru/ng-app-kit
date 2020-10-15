@@ -2,6 +2,10 @@
  * Public API Surface of router
  */
 
+import {LinkActiveChild}       from './lib/Directives/LinkActive/LinkActiveChild';
+import {LinkActiveContainer}   from './lib/Directives/LinkActive/LinkActiveContainer';
+import {LinkActiveDirective}   from './lib/Directives/LinkActive/LinkActiveDirective';
+import {LinkActiveMatcher}     from './lib/Directives/LinkActive/LinkActiveMatcher';
 import {LinkDirective}         from './lib/Directives/LinkDirective';
 import {LinkWithHrefDirective} from './lib/Directives/LinkWithHrefDirective';
 import {CanDeactivateGuard}    from './lib/Guards/CanDeactivateGuard/CanDeactivateGuard';
@@ -28,4 +32,8 @@ export {
     RouterService,
     LinkDirective,
     LinkWithHrefDirective,
+    LinkActiveDirective,
+    LinkActiveContainer,
+    LinkActiveChild,
+    LinkActiveMatcher,
 };

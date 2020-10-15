@@ -1,17 +1,19 @@
-import {Component, NgZone, NO_ERRORS_SCHEMA} from '@angular/core';
+import {Component, NgZone, QueryList, ViewChildren} from '@angular/core';
 import {
     ComponentFixture,
     fakeAsync,
     TestBed,
     tick,
-}                                            from '@angular/core/testing';
-import {By}                                  from '@angular/platform-browser';
-import {ActivatedRoute, Router}              from '@angular/router';
-import {RouterTestingModule}                 from '@angular/router/testing';
-import {HashMap}                             from '@lastdragon-ru/ng-app-kit-core';
-import {using}                               from '@lastdragon-ru/ng-app-kit-core-testing';
-import {RouterService}                       from '../Services/RouterService/RouterService';
-import {LinkWithHrefDirective}               from './LinkWithHrefDirective';
+}                                                   from '@angular/core/testing';
+import {By}                                         from '@angular/platform-browser';
+import {ActivatedRoute, Router}                     from '@angular/router';
+import {RouterTestingModule}                        from '@angular/router/testing';
+import {HashMap}                                    from '@lastdragon-ru/ng-app-kit-core';
+import {using}                                      from '@lastdragon-ru/ng-app-kit-core-testing';
+import {RouterService}                              from '../Services/RouterService/RouterService';
+import {LinkActiveChild}                            from './LinkActive/LinkActiveChild';
+import {LinkActiveContainer}                        from './LinkActive/LinkActiveContainer';
+import {LinkWithHrefDirective}                      from './LinkWithHrefDirective';
 
 describe('LinkWithHrefDirective', () => {
     // <editor-fold desc="Vars">
@@ -28,8 +30,11 @@ describe('LinkWithHrefDirective', () => {
     beforeEach(() => {
         TestBed
             .configureTestingModule({
-                schemas:      [NO_ERRORS_SCHEMA],
-                declarations: [LinkWithHrefDirective, TestComponent],
+                declarations: [
+                    LinkWithHrefDirective,
+                    TestComponent,
+                    LinkWithHrefDirectiveChildComponent,
+                ],
                 imports:      [
                     RouterTestingModule.withRoutes(
                         [
@@ -148,6 +153,33 @@ describe('LinkWithHrefDirective', () => {
             }));
         });
     });
+
+    it('LinkActiveChild', fakeAsync(() => {
+        // Create component
+        const component = TestBed.createComponent(LinkWithHrefDirectiveChildComponent);
+
+        component.detectChanges();
+
+        // Prepare
+        const addSpy    = spyOn(component.componentInstance, 'add');
+        const checkSpy  = spyOn(component.componentInstance, 'check');
+        const deleteSpy = spyOn(component.componentInstance, 'delete');
+
+        // Add
+        component.componentInstance.enabled = true;
+        component.detectChanges();
+
+        expect(addSpy).toHaveBeenCalledWith(component.componentInstance.link);
+        expect(checkSpy).toHaveBeenCalledWith(component.componentInstance.link);
+        expect(deleteSpy).not.toHaveBeenCalled();
+
+        // Delete
+        const directive                     = component.componentInstance.link;
+        component.componentInstance.enabled = false;
+        component.detectChanges();
+
+        expect(deleteSpy).toHaveBeenCalledWith(directive);
+    }));
     // </editor-fold>
 });
 
@@ -167,5 +199,42 @@ describe('LinkWithHrefDirective', () => {
 class TestComponent {
     public constructor(public route: ActivatedRoute) {
         // empty
+    }
+}
+
+@Component({
+    template:  `
+                   <ng-container *ngIf="enabled">
+                       <a kitRouterLink="/url"></a>
+                   </ng-container>
+               `,
+    providers: [
+        {
+            provide:     LinkActiveContainer,
+            useExisting: LinkWithHrefDirectiveChildComponent,
+        },
+    ],
+})
+class LinkWithHrefDirectiveChildComponent implements LinkActiveContainer {
+    public enabled: boolean = false;
+
+    @ViewChildren(LinkWithHrefDirective)
+    public links!: QueryList<LinkWithHrefDirective>;
+
+    public get link(): LinkWithHrefDirective {
+        return this.links.first;
+    }
+
+    public add(child: LinkActiveContainer | LinkActiveChild): void {
+    }
+
+    public check(child: LinkActiveContainer | LinkActiveChild): void {
+    }
+
+    public delete(child: LinkActiveContainer | LinkActiveChild): void {
+    }
+
+    public isActive(): boolean {
+        return false;
     }
 }
