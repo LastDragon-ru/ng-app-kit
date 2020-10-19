@@ -4,7 +4,6 @@
 
 import {AppError}                from './lib/Classes/AppError';
 import {HashMap}                 from './lib/Classes/HashMap';
-import {Provider}                from './lib/Classes/Provider';
 import {Template}                from './lib/Classes/Template';
 import {ErrorComponent}          from './lib/Components/Error/ErrorComponent';
 import {ErrorFormatter}          from './lib/Components/Error/ErrorFormatter';
@@ -14,6 +13,7 @@ import {ErrorFormatterComponent} from './lib/Components/Error/Formatters/ErrorFo
 import {StatefulComponent}       from './lib/Components/StatefulComponent';
 import {CoreModule}              from './lib/CoreModule';
 import {DestroyedSubject}        from './lib/Helpers/DestroyedSubject';
+import {Provider}                from './lib/Helpers/Provider';
 import {ConfirmatorService}      from './lib/Services/ConfirmatorService';
 import {NotificatorService}      from './lib/Services/NotificatorService';
 import {isArray}                 from './lib/Utils/isArray';
