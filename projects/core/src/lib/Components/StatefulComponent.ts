@@ -5,14 +5,14 @@ import {
     Injectable,
     OnDestroy,
     Output,
-}                from '@angular/core';
-import {Subject} from 'rxjs/internal/Subject';
+}                         from '@angular/core';
+import {DestroyedSubject} from '../Helpers/DestroyedSubject';
 
 @Injectable()
 export class StatefulComponent implements AfterViewInit, OnDestroy {
     @Output()
     public readonly stateChanges = new EventEmitter<void>();
-    protected readonly destroyed = new Subject<boolean>();
+    protected readonly destroyed = new DestroyedSubject();
     protected initialized        = false;
 
     public constructor(private cdr: ChangeDetectorRef) {
