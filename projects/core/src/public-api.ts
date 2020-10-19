@@ -13,6 +13,7 @@ import {ErrorFormatters}         from './lib/Components/Error/ErrorFormatters';
 import {ErrorFormatterComponent} from './lib/Components/Error/Formatters/ErrorFormatterComponent';
 import {StatefulComponent}       from './lib/Components/StatefulComponent';
 import {CoreModule}              from './lib/CoreModule';
+import {DestroyedSubject}        from './lib/Helpers/DestroyedSubject';
 import {ConfirmatorService}      from './lib/Services/ConfirmatorService';
 import {NotificatorService}      from './lib/Services/NotificatorService';
 import {isArray}                 from './lib/Utils/isArray';
@@ -32,6 +33,7 @@ export {
     Provider,
     HashMap,
     Template,
+    DestroyedSubject,
     StatefulComponent,
     AppError,
     ErrorComponent,
