@@ -1,5 +1,5 @@
 import {using}     from '@lastdragon-ru/ng-app-kit-core-testing';
-import {HashMap}   from '../Classes/HashMap';
+import {HashMap}   from '../Types/HashMap';
 import {isHashMap} from './isHashMap';
 
 describe('isHashMap', () => {

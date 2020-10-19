@@ -1,4 +1,4 @@
-import {AppError} from '../../../Classes/AppError';
+import {AppError} from '../../../Types/AppError';
 
 export abstract class ErrorFormatterComponent {
     protected error: AppError | null = null;

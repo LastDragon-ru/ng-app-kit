@@ -12,7 +12,7 @@ import {
     ViewChild,
     ViewContainerRef,
 }                                       from '@angular/core';
-import {AppError}                       from '../../Classes/AppError';
+import {AppError}                       from '../../Types/AppError';
 import {isEmpty}                        from '../../Utils/isEmpty';
 import {isEqual}                        from '../../Utils/isEqual';
 import {StatefulComponent}              from '../StatefulComponent';

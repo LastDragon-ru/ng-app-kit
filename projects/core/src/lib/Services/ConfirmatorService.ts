@@ -1,6 +1,6 @@
 import {Observable, of}    from 'rxjs';
 import {filter, switchMap} from 'rxjs/operators';
-import {Template}          from '../Classes/Template';
+import {Template}          from '../Types/Template';
 
 export abstract class ConfirmatorService {
     public abstract confirm<T>(message?: Template<T> | null): Observable<boolean>;

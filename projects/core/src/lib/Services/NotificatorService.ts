@@ -1,5 +1,5 @@
-import {AppError} from '../Classes/AppError';
-import {Template} from '../Classes/Template';
+import {AppError} from '../Types/AppError';
+import {Template} from '../Types/Template';
 
 export abstract class NotificatorService {
     public abstract success<T>(message?: Template<T> | null): void;

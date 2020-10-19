@@ -1,6 +1,6 @@
 import {ElementRef} from '@angular/core';
 import {using}      from '@lastdragon-ru/ng-app-kit-core-testing';
-import {HashMap}    from '../Classes/HashMap';
+import {HashMap}    from '../Types/HashMap';
 import {isEmpty}    from './isEmpty';
 
 describe('isEmpty', () => {

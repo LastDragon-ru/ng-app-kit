@@ -1,5 +1,5 @@
 import {ElementRef} from '@angular/core';
-import {HashMap}    from '../Classes/HashMap';
+import {HashMap}    from '../Types/HashMap';
 import {isArray}    from './isArray';
 import {isBoolean}  from './isBoolean';
 import {isHashMap}  from './isHashMap';

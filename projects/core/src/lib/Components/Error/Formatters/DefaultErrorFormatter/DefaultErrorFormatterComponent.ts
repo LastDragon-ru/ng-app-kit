@@ -1,5 +1,5 @@
 import {Component}               from '@angular/core';
-import {AppError}                from '../../../../Classes/AppError';
+import {AppError}                from '../../../../Types/AppError';
 import {isString}                from '../../../../Utils/isString';
 import {ErrorFormatterComponent} from '../ErrorFormatterComponent';
 

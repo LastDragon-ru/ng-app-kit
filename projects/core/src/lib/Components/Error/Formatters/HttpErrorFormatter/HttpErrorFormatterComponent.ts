@@ -1,6 +1,6 @@
 import {HttpErrorResponse}       from '@angular/common/http';
 import {Component}               from '@angular/core';
-import {AppError}                from '../../../../Classes/AppError';
+import {AppError}                from '../../../../Types/AppError';
 import {ErrorFormatterComponent} from '../ErrorFormatterComponent';
 
 @Component({
