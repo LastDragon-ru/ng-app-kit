@@ -1,4 +1,4 @@
-import {NgClass}                           from '@angular/common';
+import {NgClass}                                      from '@angular/common';
 import {
     ChangeDetectorRef,
     Directive,
@@ -10,20 +10,23 @@ import {
     Optional,
     Output,
     SkipSelf,
-}                                          from '@angular/core';
-import {NavigationEnd, Router}             from '@angular/router';
-import {isEqual}                           from '@lastdragon-ru/ng-app-kit-core';
-import {Subject, Subscription}             from 'rxjs';
-import {buffer, debounceTime, filter, map} from 'rxjs/operators';
-import {ClassList}                         from './ClassList';
-import {LinkActiveChild}                   from './LinkActiveChild';
-import {LinkActiveContainer}               from './LinkActiveContainer';
-import {LinkActiveMatcher}                 from './LinkActiveMatcher';
-import {Matcher}                           from './Matcher';
-import {ContainsMatcher}                   from './Matchers/ContainsMatcher';
-import {DefaultMatcher}                    from './Matchers/DefaultMatcher';
-import {ExactMatcher}                      from './Matchers/ExactMatcher';
-import {NgClassToken}                      from './NgClassToken';
+}                                                     from '@angular/core';
+import {NavigationEnd, Router}                        from '@angular/router';
+import {
+    isEqual,
+    StatefulDirective,
+}                                                     from '@lastdragon-ru/ng-app-kit-core';
+import {Subject}                                      from 'rxjs';
+import {buffer, debounceTime, filter, map, takeUntil} from 'rxjs/operators';
+import {ClassList}                                    from './ClassList';
+import {LinkActiveChild}                              from './LinkActiveChild';
+import {LinkActiveContainer}                          from './LinkActiveContainer';
+import {LinkActiveMatcher}                            from './LinkActiveMatcher';
+import {Matcher}                                      from './Matcher';
+import {ContainsMatcher}                              from './Matchers/ContainsMatcher';
+import {DefaultMatcher}                               from './Matchers/DefaultMatcher';
+import {ExactMatcher}                                 from './Matchers/ExactMatcher';
+import {NgClassToken}                                 from './NgClassToken';
 
 /**
  * Same as `[routerLinkActive]` but with kit's URLs support.
@@ -42,8 +45,8 @@ import {NgClassToken}                      from './NgClassToken';
         },
     ],
 })
-export class LinkActiveDirective extends LinkActiveContainer
-    implements OnInit, OnDestroy {
+export class LinkActiveDirective extends StatefulDirective
+    implements LinkActiveContainer, OnInit, OnDestroy {
     @Output()
     public readonly statusChanges = new EventEmitter<boolean>();
 
@@ -51,11 +54,10 @@ export class LinkActiveDirective extends LinkActiveContainer
     private matcher: LinkActiveMatcher | null = null;
     private readonly checker                  = new Subject<LinkActiveContainer | LinkActiveChild | null>();
     private readonly children                 = new Set<LinkActiveContainer | LinkActiveChild>();
-    private readonly navigated: Subscription;
 
     public constructor(
+        cdr: ChangeDetectorRef,
         protected readonly router: Router,
-        protected readonly cdr: ChangeDetectorRef,
         @Inject(NgClassToken)
         private readonly ngClass: NgClass,
         @Inject(LinkActiveContainer) @SkipSelf() @Optional()
@@ -63,11 +65,14 @@ export class LinkActiveDirective extends LinkActiveContainer
         @Optional()
         private readonly defaultMatcher: LinkActiveMatcher | null = null,
     ) {
-        super();
+        super(cdr);
 
         // We should check the status every time when url changed.
-        this.navigated = router.events
-            .pipe(filter((event) => event instanceof NavigationEnd))
+        router.events
+            .pipe(
+                filter((event) => event instanceof NavigationEnd),
+                takeUntil(this.destroyed),
+            )
             .subscribe(() => {
                 this.check();
             });
@@ -133,8 +138,9 @@ export class LinkActiveDirective extends LinkActiveContainer
     }
 
     public ngOnDestroy(): void {
+        super.ngOnDestroy();
+
         this.checker.complete();
-        this.navigated.unsubscribe();
         this.statusChanges.complete();
 
         if (this.container) {
@@ -190,8 +196,8 @@ export class LinkActiveDirective extends LinkActiveContainer
             this.active = active;
 
             this.syncClasses();
+            this.stateChanged();
             this.statusChanges.next(active);
-            this.cdr.markForCheck();
 
             if (this.container) {
                 this.container.check(this);
@@ -215,10 +221,10 @@ export class LinkActiveDirective extends LinkActiveContainer
     protected isActiveChild(child: LinkActiveContainer | LinkActiveChild | null): boolean {
         let active = false;
 
-        if (child instanceof LinkActiveContainer) {
-            active = child.isActive();
-        } else if (child) {
+        if (child && 'getUrlTree' in child) {
             active = this.getMatcher().isActive(child.getUrlTree());
+        } else if (child) {
+            active = child.isActive();
         } else {
             // empty
         }
