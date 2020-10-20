@@ -9,6 +9,7 @@ import {ErrorFormatters}         from './lib/Components/Error/ErrorFormatters';
 import {ErrorFormatterComponent} from './lib/Components/Error/Formatters/ErrorFormatterComponent';
 import {StatefulComponent}       from './lib/Components/StatefulComponent';
 import {CoreModule}              from './lib/CoreModule';
+import {StatefulDirective}       from './lib/Directives/StatefulDirective';
 import {DestroyedSubject}        from './lib/Helpers/DestroyedSubject';
 import {Provider}                from './lib/Helpers/Provider';
 import {ConfirmatorService}      from './lib/Services/ConfirmatorService';
@@ -34,6 +35,7 @@ export {
     HashMap,
     Template,
     DestroyedSubject,
+    StatefulDirective,
     StatefulComponent,
     AppError,
     ErrorComponent,
