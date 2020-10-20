@@ -16,6 +16,7 @@ import {ConfirmatorService}      from './lib/Services/ConfirmatorService';
 import {NotificatorService}      from './lib/Services/NotificatorService';
 import {AppError}                from './lib/Types/AppError';
 import {HashMap}                 from './lib/Types/HashMap';
+import {Severity}                from './lib/Types/Severity';
 import {Template}                from './lib/Types/Template';
 import {isArray}                 from './lib/Utils/isArray';
 import {isBoolean}               from './lib/Utils/isBoolean';
@@ -33,6 +34,7 @@ export {
     CoreModule as AppKitCoreModule,
     Provider,
     HashMap,
+    Severity,
     Template,
     DestroyedSubject,
     StatefulDirective,

@@ -1,5 +1,6 @@
 import {Template}           from '@lastdragon-ru/ng-app-kit-core';
 import {Observable, of}     from 'rxjs';
+import {Severity}           from '../Types/Severity';
 import {ConfirmatorService} from './ConfirmatorService';
 
 describe('ConfirmatorService', () => {
@@ -41,7 +42,7 @@ class ConfirmatorServiceImpl extends ConfirmatorService {
         super();
     }
 
-    public confirm<T>(message?: Template<T> | null): Observable<boolean> {
+    public confirm<T>(message?: Template<T> | null, severity?: Severity | null): Observable<boolean> {
         return of(this.result);
     }
 }
