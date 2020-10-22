@@ -130,26 +130,20 @@ export class LinkActiveDirective extends StatefulDirective
     // <editor-fold desc="Angular">
     // =========================================================================
     public ngOnInit(): void {
-        if (this.container) {
-            this.container.add(this);
-        }
-
+        this.container?.add(this);
         this.check();
     }
 
     public ngOnDestroy(): void {
-        super.ngOnDestroy();
-
         this.checker.complete();
         this.statusChanges.complete();
-
-        if (this.container) {
-            this.container.delete(this);
-        }
+        this.container?.delete(this);
 
         if (this.children.size > 0) {
-            throw new Error('`LinkActiveDirective.children` is not empty!');
+            console.error('`LinkActiveDirective.children` is not empty!');
         }
+
+        super.ngOnDestroy();
     }
 
     // </editor-fold>
@@ -198,10 +192,7 @@ export class LinkActiveDirective extends StatefulDirective
             this.syncClasses();
             this.stateChanged();
             this.statusChanges.next(active);
-
-            if (this.container) {
-                this.container.check(this);
-            }
+            this.container?.check(this);
         }
     }
 

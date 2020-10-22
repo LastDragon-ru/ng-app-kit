@@ -58,25 +58,19 @@ export class LinkWithHrefDirective extends RouterLinkWithHref
     // <editor-fold desc="Angular">
     // =========================================================================
     public ngOnInit(): void {
-        if (this.container) {
-            this.container.add(this);
-        }
+        this.container?.add(this);
     }
 
     public ngOnChanges(changes: SimpleChanges): void {
         super.ngOnChanges(changes);
 
-        if (this.container) {
-            this.container.check(this);
-        }
+        this.container?.check(this);
     }
 
     public ngOnDestroy(): void {
         super.ngOnDestroy();
 
-        if (this.container) {
-            this.container.delete(this);
-        }
+        this.container?.delete(this);
     }
 
     // </editor-fold>
